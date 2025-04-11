@@ -1,0 +1,52 @@
+%%%%%%%%%%%%%%%
+
+\usepackage[utf8]{inputenc}
+% \usepackage[spanish]{babel}
+% \usepackage[top=1in, bottom=1in, left=1.2in, right=1.2in]{geometry}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{wasysym}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{tikz}
+
+% sets
+\newcommand{\NN}{\mathbf{N}}
+\newcommand{\ZZ}{\mathbf{Z}}
+\newcommand{\QQ}{\mathbf{Q}}
+\newcommand{\RR}{\mathbf{R}}
+\newcommand{\Zpos}{\ZZ^{+}}
+\newcommand{\Rpos}{\RR^{+}}
+
+% brackets
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+
+% formal statements
+\newtheorem{prop}{Proposition}
+
+\theoremstyle{plain}
+\newtheorem{clm}{Claim}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+
+\newtheorem{exl}{Example}
+
+\theoremstyle{remark}
+\newtheorem{rmk}{Remark}
+
+% display of code
+\definecolor{oliveGreen}{rgb}{0.13,0.55,0.13}
+\lstset{%
+    language = Java,
+    basicstyle = \normalsize\ttfamily,
+    keywordstyle = \bf,
+    commentstyle = \color{oliveGreen}\it,
+    stringstyle = \color{blue},
+    showstringspaces = false,
+    columns = fullflexible%
+}
