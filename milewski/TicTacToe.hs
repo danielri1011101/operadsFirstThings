@@ -3,7 +3,7 @@
 -- S is a type constructor and Z is a type variable, oder? it could
 -- be _lowercase z_ no problem, I think...
 
-newtype Matrix = Matrix {unMatrix :: Vec n (Vec m a)}
+newtype Matrix n m a = Matrix {unMatrix :: Vec n (Vec m a)}
 
 data Vec n a where
   VNil :: Vec Z a
