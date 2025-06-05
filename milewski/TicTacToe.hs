@@ -53,9 +53,41 @@ data MoveTree n where
 -- Which a priori isn't commutative!
 
 class (Graded f) Operad (f :: Nat -> *) where
-  identity :: f (S Z)
+  ident :: f (S Z)
   compose :: f n -> Forest f m n -> f m
 
 -- Very reasonable, but one must notice that the total arity m is
 -- not yet partitioned as m = n1 + ... + nk, as in the traditional operad
 -- definition.
+
+class Graded f where
+  grade :: f a -> Nat
+
+data SNat n where
+  SZ :: SNat Z -- "force" inhabittance?
+  SS :: SNat n -> S (SNat n)
+
+type family (+) :: (a :: Nat) -> (b :: Nat) -> (c :: Nat)
+  Z + n = n
+  (S n) + m = S (n + m)
+
+-- The _cheating_ in order to make type-level addition commute:
+
+plusZ :: forall n. Dict (n ~ (n + Z))
+plusZ = unsafecoerce (Dict (n ~ (n + Z)))
+
+-- The _helper class_ Forest for operads:
+-- Pure recall, this might be very wrong...
+
+class (Operad f) Forest f m n where
+  Nil :: Forest f Z Z
+  compose :: f i1 -> Forest f i2 n -> Forest f (i1 + i2) (S n)
+
+instance Forest (MoveTree m, n :: Nat) where
+  Nil = (Fan NilT, Z)
+  compose -- ... Failed...
+
+instance Operad MoveTree where
+  ident = Leaf
+  compose Leaf t = t
+  compose
