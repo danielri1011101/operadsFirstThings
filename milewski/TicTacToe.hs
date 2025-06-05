@@ -87,6 +87,8 @@ instance Forest (MoveTree m, n :: Nat) where
   Nil = (Fan NilT, Z)
   compose -- ... Failed...
 
+-- fff
+
 instance Operad MoveTree where
   ident = Leaf
   compose Leaf t = t
