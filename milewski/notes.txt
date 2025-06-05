@@ -1,0 +1,12 @@
+% Secure safe _random_ access to a vector?
+
+% That seems to be the purpose of *Fin*
+
+% Tab character warnings...
+
+% _let_ bindings ("outside I/O", if you want) are *local*
+  in scope (say, to ease declaring a function), because
+  VARIABLES DON'T EXIST!
+
+% Indeed, _let_ bindings in ghci are local as well, because their
+  scope is the one and only _main_ function!
