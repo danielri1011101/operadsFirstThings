@@ -68,7 +68,7 @@ data Trees n where
   (:+) :: (Move, MoveTree k) -> Trees m -> Trees (k+m)
 
 -- Here's the _problematic_ type-level addition, for which Milewski says that
--- the TypeLits import can make cleaner.
+-- the TypeLits import can make cleaner.   .-.
 type family (+) (a :: Nat) (b :: Nat) :: Nat
 
 -- A priori *not commutative*:
