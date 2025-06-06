@@ -67,6 +67,9 @@ data Trees n where
   NilT :: Trees Z
   (:+) :: (Move, MoveTree k) -> Trees m -> Trees (k+m)
 
+infixr 5 :+
+
+
 -- Here's the _problematic_ type-level addition, for which Milewski says that
 -- the TypeLits import can make cleaner.   .-.
 type family (+) (a :: Nat) (b :: Nat) :: Nat
@@ -77,3 +80,32 @@ type instance S n + m = S (n + m)
 
 -- I remember that Homotopy Type Theory allows for commutativity to follow as
 -- a theorem from this definition.  .-.
+
+-- Singleton natural numbers.
+-- Are they supposed to be types inhabited by a single element?
+data SNat n where
+  SZ :: SNat Z
+  SS :: SNat n -> SNat (S n)
+
+-- Their addition.
+plus :: SNat n -> SNat m -> SNat (n+m)
+SZ `plus` sn_m = sn_m
+(SS sn_n) `plus` sn_m = SS (sn_n `plus` sn_m)
+
+-- Graded typeclass for Nat-parametrized types, such as operads and their trees.
+class Graded (f :: Nat -> *) where
+  grade :: f n -> SNat n
+
+instance Graded MoveTree where
+  grade Leaf = SS SZ
+  grade (Fan ts) = grade ts
+
+instance Graded Trees where
+  grade NilT = SZ
+  grade ((_, t) :+ ts) = grade t `plus` grade ts
+
+-- A _Forest_ is a list of trees parametrized by Nat (i.e. compile-time integers.)
+data Forest f n m where
+  Nil :: Forest f Z Z
+--   A new tree enters a forest...
+  Cons :: f i1 -> Forest f i2 n -> Forest f (i1+i2) (S n)
