@@ -22,7 +22,7 @@ type Three = S (S (S Z))
 headV :: Vec (S n) a -> a
 headV (VCons a _) = a
 
--- Type for _safe indexing_, whatever that means...
+-- Type for _safe indexing_, not completely sure what that means.
 data Fin n where
   FinZ :: Fin (S n)
   FinS :: Fin n -> Fin (S n)
