@@ -35,9 +35,7 @@ ixV FinZ (VCons x _) = x
 ixV (FinS fin_n) (VCons _ xs) = 
     ixV fin_n xs
 
--- Bindings for the elements of Fin Three only when the implementation
--- of the game starts.
-
+-- For game I/O.
 toFin3 :: Int -> Maybe (Fin Three)
 toFin3 0 = Just FinZ
 toFin3 1 = Just (FinS FinZ)
@@ -51,6 +49,7 @@ instance Show Player where
   show Circle = " O "
 
 -- A tic-tac-toe board is a 3x3 matrix with coefficiets "X", "O" or Nothing.
+-- .-.
 type Board = Matrix Three Three (Maybe Player)
 
 -- _xc_ is "x-coordinate", _yc_ is "y-coordinate"
