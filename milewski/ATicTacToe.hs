@@ -62,7 +62,7 @@ data MoveTree n where
   Fan :: Trees n -> MoveTree n
 
 -- Milewski uses a pair (,) argument for the cons instead of currying... ah,
--- probably so that it can be a *binary infix operator*...
+-- probably so that it can be a *binary infix operator*...   .-.
 data Trees n where
   NilT :: Trees Z
   (:+) :: (Move, MoveTree k) -> Trees m -> Trees (k+m)
