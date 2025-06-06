@@ -76,4 +76,4 @@ type instance Z + m = m
 type instance S n + m = S (n + m)
 
 -- I remember that Homotopy Type Theory allows for commutativity to follow as
--- a theorem from this definition.
+-- a theorem from this definition.  .-.
