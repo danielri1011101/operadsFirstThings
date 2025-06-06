@@ -4,6 +4,7 @@
 
 newtype Matrix n m a = Matrix {unMatrix :: Vec n (Vec m a)}
 
+-- Vec is parametrized by Nat from its definition.
 data Vec n m where
   VNil :: Vec Z a
   VCons :: a -> Vec n a -> Vec (S n) a
