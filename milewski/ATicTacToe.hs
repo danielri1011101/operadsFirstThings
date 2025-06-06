@@ -54,6 +54,7 @@ instance Show Player where
 type Board = Matrix Three Three (Maybe Player)
 
 -- _xc_ is "x-coordinate", _yc_ is "y-coordinate"
+-- .-.
 data Move = Move {plyr :: Player, xc :: Fin Three, yc :: Fin Three}
 
 data MoveTree n where
