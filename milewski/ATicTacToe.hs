@@ -13,13 +13,12 @@ data Vec n m where
 data Nat = Z | S Nat deriving Show
 
 -- Some aliases for the first few number types.
-
 type One = S Z
 type Two = S (S Z)
 type Three = S (S (S Z))
 
 -- Requires non-trivial operation of pattern matching in a
--- Generalized Abstract Data Type...
+-- Generalized Abstract Data Type...  .-.
 headV :: Vec (S n) a -> a
 headV (VCons a _) = a
 
