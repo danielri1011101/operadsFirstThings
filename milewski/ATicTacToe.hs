@@ -1,4 +1,5 @@
 {-# LANGUAGE DataKinds #-}
+{-# LANGUAGE TypeFamilies #-}
 {-# LANGUAGE GADTs #-}
 
 newtype Matrix n m a = Matrix {unMatrix :: Vec n (Vec m a)}
@@ -8,6 +9,7 @@ data Vec n m where
   VCons :: a -> Vec n a -> Vec (S n) a
 
 -- Thanks to the import, this can double as a kind.
+-- .-.
 data Nat = Z | S Nat deriving Show
 
 -- Some aliases for the first few number types.
@@ -44,3 +46,34 @@ toFin3 2 = Just (FinS (FinS FinZ))
 toFin3 _ = Nothing
 
 data Player = Cross | Circle deriving Eq
+
+instance Show Player where
+  show Cross = " X "
+  show Circle = " O "
+
+-- A tic-tac-toe board is a 3x3 matrix with coefficiets "X", "O" or Nothing.
+type Board = Matrix Three Three (Maybe Player)
+
+-- _xc_ is "x-coordinate", _yc_ is "y-coordinate"
+data Move = Move {plyr :: Player, xc :: Fin Three, yc :: Fin Three}
+
+data MoveTree n where
+  Leaf :: MoveTree One
+  Fan :: Trees n -> MoveTree n
+
+-- Milewski uses a pair (,) argument for the cons instead of currying... ah,
+-- probably so that it can be a *binary infix operator*...
+data Trees n where
+  NilT :: Trees Z
+  (:+) :: (Move, MoveTree k) -> Trees m -> Trees (k+m)
+
+-- Here's the _problematic_ type-level addition, for which Milewski says that
+-- the TypeLits import can make cleaner.
+type family (+) (a :: Nat) (b :: Nat) :: Nat
+
+-- A priori *not commutative*:
+type instance Z + m = m
+type instance S n + m = S (n + m)
+
+-- I remember that Homotopy Type Theory allows for commutativity to follow as
+-- a theorem from this definition.

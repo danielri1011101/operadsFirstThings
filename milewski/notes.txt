@@ -10,3 +10,9 @@
 
 % Indeed, _let_ bindings in ghci are local as well, because their
   scope is the one and only _main_ function!
+
+% Does the DataKinds import allow for the definition of "new kinds"? Namely,
+  is in this tictactoe the data Nat **only** a kind?
+
+% Yeah, so Matrix _can_ recieve Nat arguments because Matrix is defined in
+  terms of Vec, which is parametrized by Nat from its definition.
