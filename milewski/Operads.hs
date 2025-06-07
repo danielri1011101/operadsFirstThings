@@ -1,4 +1,5 @@
 {-# LANGUAGE DataKinds #-}
+{-# LANGUAGE GADTs #-}
 
 module Operads where
 
@@ -13,3 +14,16 @@ class Graded (f :: Nat -> *) where
 class (Graded f) => Operad (f :: Nat -> *) where
   ident :: f One
   comp :: f n -> Forest f m n -> f m
+
+instance Graded MoveTree where
+  grade Leaf = SS SZ
+  grade (Fan ts) = grade ts
+
+instance Graded Trees where
+  grade NilT = SZ
+  grade ((_, t) :+ ts) = grade t `plus` grade ts
+
+-- Define composition "recursively", from ground-up
+instance Operad MoveTree where
+  ident = Leaf
+  comp

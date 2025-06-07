@@ -17,6 +17,8 @@ data Trees n where
   NilT :: Trees Z
   (:+) :: (Move, MoveTree k) -> Trees m -> Trees (k+m)
 
+infixr 5 :+
+
 data Forest f n m where
   Nil :: Forest f Z Z
   Cons :: f i1 -> Forest f i2 n -> Forest f (i1+i2) (S n)

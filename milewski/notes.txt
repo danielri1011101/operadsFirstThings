@@ -16,3 +16,6 @@
 
 % Yeah, so Matrix _can_ recieve Nat arguments because Matrix is defined in
   terms of Vec, which is parametrized by Nat from its definition.
+
+% Making trees into an operad instance is the code written right before
+  _The Comonad_ section. Namely, it takes some work.
