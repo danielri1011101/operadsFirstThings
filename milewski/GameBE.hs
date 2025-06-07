@@ -1,13 +1,12 @@
-import LinAlg
-import Numbers
-
 {-# LANGUAGE DataKinds #-}
 {-# LANGUAGE GADTs #-}
 {-# LANGUAGE TypeFamilies #-}
 
--- This is the Game Back-End module.
+import LinAlg
+import Numbers
+import Trees
 
-data Player = Cross | Circle deriving Eq
+-- This is the Game Back-End module.
 
 instance Show Player where
   show Cross = " X "
