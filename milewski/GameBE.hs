@@ -1,4 +1,9 @@
+import LinAlg
 import Numbers
+
+{-# LANGUAGE DataKinds #-}
+{-# LANGUAGE GADTs #-}
+{-# LANGUAGE TypeFamilies #-}
 
 -- This is the Game Back-End module.
 
@@ -13,3 +18,5 @@ toFin3 0 = Just FinZ
 toFin3 1 = Just (FinS FinZ)
 toFin3 2 = Just (FinS (FinS FinZ))
 toFin3 _ = Nothing
+
+type Board = Matrix Three Three (Maybe Player)

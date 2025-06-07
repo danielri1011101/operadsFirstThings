@@ -3,9 +3,15 @@
 {-# LANGUAGE TypeFamilies #-}
 
 
-module Numbers where
-
-
+module Numbers
+( Nat (..)
+, One
+, Two
+, Three
+, Fin (..)
+, SNat (..)
+, plus
+) where
 
 data Nat = Z | S Nat
 
