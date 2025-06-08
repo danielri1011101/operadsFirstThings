@@ -28,8 +28,12 @@ instance Graded Trees where
 instance Operad MoveTree where
   ident = Leaf
   comp Leaf (Cons t Nil) = t
-  comp (Fan ((mv, Leaf) :+ t_n')) (Cons t_k fmn) =
-    let t_n = Fan t_n'
-        t_m = comp t_n fmn
-        t_m_ = (mv, t_m)
-    in Fan $ (mv,t_k) :+ (t_m_ :+ NilT)
+  comp (Fan ((mv, t) :+ ts)) frt =
+    let (mst1, mst2) = splitForest (grade t) frt
+--       mst1 :: Forest MoveTree m1 (grade t)
+--       mst2 :: Forest MoveTree m2 (grade (Fan ts))
+--       _where_ frt :: Forest MoveTree (m1+m2) n
+--       _where_ n = (grade t) + (grade (Fan ts))
+        tree = comp t mst1
+        (Fan trees) = comp (Fan ts) mst2
+    in Fan $ (mv,t) :+ trees
