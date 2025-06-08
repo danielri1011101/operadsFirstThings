@@ -1,5 +1,6 @@
 {-# LANGUAGE DataKinds #-}
 {-# LANGUAGE GADTs #-}
+{-# LANGUAGE TypeFamilies #-}
 
 module Operads where
 
@@ -26,4 +27,9 @@ instance Graded Trees where
 -- Define composition "recursively", from ground-up
 instance Operad MoveTree where
   ident = Leaf
-  comp
+  comp Leaf (Cons t Nil) = t
+  comp (Fan ((mv, Leaf) :+ t_n')) (Cons t_k fmn) =
+    let t_n = Fan t_n'
+        t_m = comp t_n fmn
+        t_m_ = (mv, t_m)
+    in Fan $ (mv,t_k) :+ (t_m_ :+ NilT)
