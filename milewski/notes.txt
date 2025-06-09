@@ -21,3 +21,7 @@
   _The Comonad_ section. Namely, it takes some work.
 
 % The _grade_ of a tree gives its number of inputs.
+
+% The example of the existential quantifier suggests to me that constraints
+  point towards the usefulness of (say) refinement types, and towards how can
+  Haskell become/include a (mathematical?) proof checker (as noted by Milewski).

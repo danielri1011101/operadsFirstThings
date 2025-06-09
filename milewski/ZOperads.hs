@@ -38,4 +38,6 @@ instance Operad MoveTree where
         (Fan trees) = comp (Fan ts) mst2
     in Fan $ (mv,t) :+ trees
 
-splitForest :: SNat n1 -> SNat n2 -> Forest f m n -> (Forest f m1 n1, Forest f m2 n2)
+-- Wishfull thinking for the type signature:
+splitForest :: exists i1 i2. i1+i2 ~ i =>
+    SNat m -> SNat n -> Forest f i (m+n) -> (Forest i1 m, Forest i2 n)
