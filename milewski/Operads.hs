@@ -50,16 +50,16 @@ instance Operad MoveTree where
 -- Being defined as a lambda, so to speak... Or, alternatively,
 -- it's a function given by its formula...
 -- Type signature: existential quantifier as a continuation:
-splitForest :: SNat m -> SNat n ->
-               (forall i1 i2. (i1+i2) ~ i => Forest f i (m+n) -> r)
-               -> r
+splitForest :: forall m n i f r. SNat m -> SNat n -> Forest f i (m+n) ->
+               (forall i1 i2. (i1+i2) ~ i => 
+               (Forest f i1 m, Forest f i2 n) -> r) -> r
 splitForest (SS (sm :: SNat m_1))
             sn
             (Cons (t :: f i1) (ts :: Forest f i2 (m_1+n)))
             k =
     splitForest sm sn ts $
-        ((m_frag :: Forest f i3 m_1), (n_frag :: Forest f i4 n)) ->
-            case plusAssoc (Proxy :: Proxy i1)
+        ((m_frag :: Forest f i3 m_1), (n_frag :: Forest f i4 n))
+         -> case plusAssoc (Proxy :: Proxy i1)
                            (Proxy :: Proxy i3)
                            (Proxy :: Proxy i4) of
                 Dict -> k (Cons t m_frag, n_frag)
