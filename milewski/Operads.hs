@@ -46,6 +46,17 @@ instance Operad MoveTree where
         (Fan trees) = compose (Fan ts) mst2
     in Fan $ (mv,t) :+ trees
 
--- One could hope that the typechecker ensures i1 + i2 = i...
--- The variable _i_ is used for *input*, I guess...
-splitForest :: SNat m -> SNat n -> Forest f i (m+n) -> (Forest f i1 m, Forest f i2 n)
+-- Final implementation, "gory details" unexplained.
+-- Being defined as a lambda, so to speak... Or, alternatively,
+-- it's a function given by its formula...
+-- But, is providing a type signature problematic, aside from bothersome?
+splitForest (SS (sm :: SNat m_1))
+            sn
+            (Cons (t :: f i1) (ts :: Forest f i2 (m_1+n)))
+            k =
+    splitForest sm sn ts $
+        ((m_frag :: Forest f i3 m_1), (n_frag :: Forest f i4 n)) ->
+            case plusAssoc (Proxy :: Proxy i1)
+                           (Proxy :: Proxy i3)
+                           (Proxy :: Proxy i4) of
+                Dict -> k (Cons t m_frag, n_frag)

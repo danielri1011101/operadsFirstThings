@@ -25,3 +25,6 @@
 % The example of the existential quantifier suggests to me that constraints
   point towards the usefulness of (say) refinement types, and towards how can
   Haskell become/include a (mathematical?) proof checker (as noted by Milewski).
+
+% Makes perfect sense to call upon addition's associativity in order to recover
+  a splitting of Forest f m n...
