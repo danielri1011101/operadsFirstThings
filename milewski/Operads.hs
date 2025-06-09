@@ -49,7 +49,10 @@ instance Operad MoveTree where
 -- Final implementation, "gory details" unexplained.
 -- Being defined as a lambda, so to speak... Or, alternatively,
 -- it's a function given by its formula...
--- But, is providing a type signature problematic, aside from bothersome?
+-- Type signature: existential quantifier as a continuation:
+splitForest :: SNat m -> SNat n ->
+               (forall i1 i2. (i1+i2) ~ i => Forest f i (m+n) -> r)
+               -> r
 splitForest (SS (sm :: SNat m_1))
             sn
             (Cons (t :: f i1) (ts :: Forest f i2 (m_1+n)))
