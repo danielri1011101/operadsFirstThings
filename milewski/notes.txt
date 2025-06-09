@@ -19,3 +19,5 @@
 
 % Making trees into an operad instance is the code written right before
   _The Comonad_ section. Namely, it takes some work.
+
+% The _grade_ of a tree gives its number of inputs.

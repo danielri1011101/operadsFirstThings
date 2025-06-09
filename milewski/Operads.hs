@@ -46,3 +46,6 @@ instance Operad MoveTree where
         (Fan trees) = compose (Fan ts) mst2
     in Fan $ (mv,t) :+ trees
 
+-- One could hope that the typechecker ensures i1 + i2 = i...
+-- The variable _i_ is used for *input*, I guess...
+splitForest :: SNat m -> SNat n -> Forest f i (m+n) -> (Forest f i1 m, Forest f i2 n)
