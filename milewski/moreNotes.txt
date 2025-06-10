@@ -1,3 +1,13 @@
 %%%%%%%-- These notes are arguably less (immediately) important --%%%%%%%
 
+10.06.25
+
 % _case_ expressions are (or phps can be) an alternative to pattern matching.
+
+% Why isn't (Haskell) universal quantification realizing dependent types?
+
+% The C.H. intepretation of dependent function types is universal quantifi-
+  cation, isn't it?
+
+% Is there a good reason not to have a Forest be a list of trees? (to defi-
+  ne operads, I mean.)
