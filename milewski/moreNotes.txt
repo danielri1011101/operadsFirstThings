@@ -1,0 +1,3 @@
+%%%%%%%-- These notes are arguably less (immediately) important --%%%%%%%
+
+% _case_ expressions are (or phps can be) an alternative to pattern matching.

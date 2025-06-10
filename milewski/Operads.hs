@@ -58,8 +58,9 @@ splitForest (SS (sm :: SNat m_1))
             (Cons (t :: f i1) (ts :: Forest f i2 (m_1+n)))
             k =
     splitForest sm sn ts $
-        ((m_frag :: Forest f i3 m_1), (n_frag :: Forest f i4 n))
-         -> case plusAssoc (Proxy :: Proxy i1)
-                           (Proxy :: Proxy i3)
-                           (Proxy :: Proxy i4) of
-                Dict -> k (Cons t m_frag, n_frag)
+        (\((m_frag :: Forest f i3 m_1), (n_frag :: Forest f i4 n))
+            -> case plusAssoc (Proxy :: Proxy i1)
+                              (Proxy :: Proxy i3)
+                              (Proxy :: Proxy i4) of
+                    Dict -> k (Cons t m_frag, n_frag)
+        )
