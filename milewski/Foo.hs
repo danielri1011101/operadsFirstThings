@@ -17,6 +17,7 @@ splitForest :: forall f m n r i. SNat m -> SNat n -> Forest f i (m+n) ->
 splitForest (SS (sm :: SNat m)) sn
             (Cons (t :: f i1) (ts :: Forest f i2 (m+n))) k =
   splitForest sm sn $
-    (
-      \ (
-    )
+    (-- arg is a splitting of ts.
+      \ (uts :: Forest f i3 m, vts :: Forest f i4 n) ->
+          (Cons t uts, vts)
+    ) -- essentially, I guess.
