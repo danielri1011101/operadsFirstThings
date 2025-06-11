@@ -43,10 +43,12 @@ instance Operad MoveTree where
   compose Leaf (Cons (t :: MoveTree m) Nil) =
     case plusZ :: Dict (m ~ (m + Z)) of Dict -> t
   compose (Fan ((mv, t) :+ ts)) frt =
-    let (mst1, mst2) = splitForest (grade t) (grade ts) frt
+    let ans = splitForest (grade t) (grade ts) frt lambda
+        lambda = \(mst1, mst2) -> Fan ((mv,tree) :+ trees)
         tree = compose t mst1
         (Fan trees) = compose (Fan ts) mst2
-    in Fan $ (mv,t) :+ trees
+    in ans
+  compose _ _ = error "Composition undefined!"
 
 -- Type signature: existential quantifier as a continuation:
 -- Add base case.
