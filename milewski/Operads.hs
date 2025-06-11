@@ -36,6 +36,8 @@ plusZ :: forall n. Dict (n ~ (n + Z))
 plusZ = unsafeCoerce (Dict :: Dict (n ~ n))
 
 -- Define composition "recursively", from ground-up
+-- There seems to be an "obvious lambda" to provide as the last argument
+-- of the call to splitForest.
 instance Operad MoveTree where
   ident = Leaf
   compose Leaf (Cons (t :: MoveTree m) Nil) =
