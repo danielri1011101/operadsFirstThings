@@ -7,6 +7,35 @@ head' xs =
 
 
 
+
+
+
+
+t :: MoveTree m
+ts :: Trees k
+
+-- How about using _where_ syntax to improve the readability
+-- of _let_ bindings?
+
+let 
+
+compose (Fan ((mv, t) :+ ts)) frt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 -- Should I bind n?
 -- We call splitForest for _some_ splitting of the inputs...
 splitForest :: forall f m n r i. SNat m -> SNat n -> Forest f i (m+n) ->
@@ -20,4 +49,5 @@ splitForest (SS (sm :: SNat m)) sn
     (-- arg is a splitting of ts.
       \ (uts :: Forest f i3 m, vts :: Forest f i4 n) ->
           (Cons t uts, vts)
-    ) -- essentially, I guess.
+    ) -- essentially, I guess. -- Yeah, I just missed passing it to the
+--       continuation.
