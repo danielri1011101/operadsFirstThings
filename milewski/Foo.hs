@@ -11,15 +11,21 @@ head' xs =
 
 
 
-t :: MoveTree m
+t ::((k+l) ~ m) MoveTree m
 ts :: Trees k
 
--- How about using _where_ syntax to improve the readability
--- of _let_ bindings?
+Cons :: f p -> Forest f q n -> Forest f (p+q) (S n)
 
-let 
+compose :: f p -> Forest f i p -> f i
+compose t frt = Fan (t' :+ trees)
 
-compose (Fan ((mv, t) :+ ts)) frt
+  where t = (Fan ((mv, t_1) :+ ts))
+        t' = compose t kFrag
+        (Fan trees) = compose (Fan ts) lFrag
+        sk = grade t_1
+        sl = grade ts
+        id = \x -> x
+        (kFrag, lFrag) = splitForest sk sl frt id
 
 
 
