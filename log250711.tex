@@ -20,4 +20,19 @@ $$
 We can provide the following \emph{informal} validation of it in
 terms of classical logic:
 
+\begin{eqnarray*}
+	\exists X . T \vdash \\
+	\neg (\forall X . \neg T) \vdash \\
+	\neg (\forall X . \neg T \lor Y) \lor Y \vdash \\
+	(\forall X . T \to Y) \to Y \vdash \\
+	\forall Y . (\forall X . T \to Y) \to Y
+\end{eqnarray*}
+
+\section{comments}
+
+\begin{itemize}
+	\item Realized that the singleton type family \texttt{SNat n} makes the
+		\texttt{Nat} kind inhabitted.
+\end{itemize}
+
 \end{document}

@@ -39,5 +39,19 @@ instance Operad MoveTree where
     in Fan $ (mv,t) :+ trees
 
 -- Wishfull thinking for the type signature:
-splitForest :: exists i1 i2. i1+i2 ~ i =>
+splitForest' :: exists i1 i2. i1+i2 ~ i =>
     SNat m -> SNat n -> Forest f i (m+n) -> (Forest i1 m, Forest i2 n)
+
+-- splitForest recall:
+splitForest :: forall f m n r i. SNat m -> SNat n -> Forest f i (m+n) ->
+    (
+     forall i1 i2. (i1+i2) ~ i => (Forest f i1 m, Forest f i2 n) -> r
+    ) -> r
+splitForest SZ _ ts k = k (Nil, ts)
+splitForest (SS (sm :: SNat m)) sn (Cons t ts) k =
+    splitForest sm sn ts $
+        (
+         \ (mouts, nouts) ->
+               let tree = Cons t mouts
+                   
+        )

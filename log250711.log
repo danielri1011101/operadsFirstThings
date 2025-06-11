@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2025.4.9)  11 JUN 2025 12:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2025.4.9)  11 JUN 2025 15:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -544,24 +544,26 @@ e
 ABD: EveryShipout initializing macros [1{/var/lib/texmf/fonts/map/pdftex/updmap
 /pdftex.map}] (./log250711.aux) ) 
 Here is how much of TeX's memory you used:
- 14924 strings out of 483065
- 279624 string characters out of 5963551
- 675062 words of memory out of 5000000
- 29545 multiletter control sequences out of 15000+600000
- 538887 words of font info for 51 fonts, out of 8000000 for 9000
+ 14930 strings out of 483065
+ 279700 string characters out of 5963551
+ 677062 words of memory out of 5000000
+ 29549 multiletter control sequences out of 15000+600000
+ 539356 words of font info for 53 fonts, out of 8000000 for 9000
  242 hyphenation exceptions out of 8191
- 63i,5n,62p,416b,217s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 63i,6n,62p,416b,217s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
-7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on log250711.pdf (1 page, 69083 bytes).
+sfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on log250711.pdf (1 page, 88532 bytes).
 PDF statistics:
- 39 PDF objects out of 1000 (max. 8388607)
- 28 compressed objects within 1 object stream
+ 47 PDF objects out of 1000 (max. 8388607)
+ 34 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
