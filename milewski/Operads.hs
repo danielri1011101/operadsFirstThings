@@ -46,15 +46,14 @@ instance Operad MoveTree where
         (Fan trees) = compose (Fan ts) mst2
     in Fan $ (mv,t) :+ trees
 
--- Final implementation, "gory details" unexplained.
--- Being defined as a lambda, so to speak... Or, alternatively,
--- it's a function given by its formula...
 -- Type signature: existential quantifier as a continuation:
+-- Add base case.
 splitForest :: forall m n i f r. SNat m -> SNat n -> Forest f i (m+n) ->
                (
                 forall i1 i2. (i1+i2) ~ i => 
                 (Forest f i1 m, Forest f i2 n) -> r
                ) -> r
+splitForest SZ _ fs k = k (Nil, fs)
 splitForest (SS (sm :: SNat m_1))
             sn
             (Cons (t :: f i1) (ts :: Forest f i2 (m_1+n)))
