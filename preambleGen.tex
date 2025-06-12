@@ -39,14 +39,15 @@
 \theoremstyle{remark}
 \newtheorem{rmk}{Remark}
 
-% display of code
-\definecolor{oliveGreen}{rgb}{0.13,0.55,0.13}
-\lstset{%
-    language = Java,
-    basicstyle = \normalsize\ttfamily,
-    keywordstyle = \bf,
-    commentstyle = \color{oliveGreen}\it,
-    stringstyle = \color{blue},
-    showstringspaces = false,
-    columns = fullflexible%
+% vulgar display of code
+
+\lstdefinestyle{astyle}{
+	commentstyle=\color{blue},
+	keywordstyle=\color{purple},
+	numberstyle=\tiny\color{gray},
+	stringstyle=\color{green},
+	basicstyle=\ttfamily\footnotesize,
+	tabsize=2
 }
+
+\lstset{style=astyle}
