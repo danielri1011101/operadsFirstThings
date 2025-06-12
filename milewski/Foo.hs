@@ -8,9 +8,6 @@ head' xs =
 
 
 
-
-
-
 t ::((k+l) ~ m) MoveTree m
 ts :: Trees k
 
