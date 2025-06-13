@@ -1,0 +1,56 @@
+GHCi, version 9.2.4: https://www.haskell.org/ghc/  :? for help
+ghci> [1 of 3] Compiling Numbers          ( Numbers.hs, interpreted )
+[2 of 3] Compiling Trees            ( Trees.hs, interpreted )
+[3 of 3] Compiling Operads          ( Operads.hs, interpreted )
+
+Operads.hs:46:52: error:
+    • Could not deduce: (k0 + m0) ~ m
+      from the context: n ~ (k + m1)
+        bound by a pattern with constructor:
+                   :+ :: forall (k :: Nat) (m :: Nat).
+                         (Move, MoveTree k) -> Trees m -> Trees (k + m),
+                 in an equation for ‘compose’
+        at Operads.hs:45:17-29
+      or from: (i1 + i2) ~ m
+        bound by a type expected by the context:
+                   forall (i1 :: Nat) (i2 :: Nat).
+                   ((i1 + i2) ~ m) =>
+                   (Forest MoveTree i1 k, Forest MoveTree i2 m1) -> MoveTree m
+        at Operads.hs:46:52-57
+      Expected: (Forest MoveTree i1 k, Forest MoveTree i2 m1)
+                -> MoveTree m
+        Actual: (a0, b0) -> MoveTree (k0 + m0)
+      ‘m’ is a rigid type variable bound by
+        the type signature for:
+          compose :: forall (n :: Nat) (m :: Nat).
+                     MoveTree n -> Forest MoveTree m n -> MoveTree m
+        at Operads.hs:43:3-9
+    • In the fourth argument of ‘splitForest’, namely ‘lambda’
+      In the expression: splitForest (grade t) (grade ts) frt lambda
+      In an equation for ‘ans’:
+          ans = splitForest (grade t) (grade ts) frt lambda
+    • Relevant bindings include
+        ans :: MoveTree m (bound at Operads.hs:46:9)
+        lambda :: (a0, b0) -> MoveTree (k0 + m0) (bound at Operads.hs:47:9)
+        tree :: MoveTree k0 (bound at Operads.hs:48:9)
+        trees :: Trees m0 (bound at Operads.hs:49:14)
+        frt :: Forest MoveTree m n (bound at Operads.hs:45:33)
+        compose :: MoveTree n -> Forest MoveTree m n -> MoveTree m
+          (bound at Operads.hs:43:3)
+   |
+46 |     let ans = splitForest (grade t) (grade ts) frt lambda
+   |                                                    ^^^^^^
+
+Operads.hs:48:26: error:
+    Variable not in scope: mst1 :: Forest MoveTree k0 k
+   |
+48 |         tree = compose t mst1
+   |                          ^^^^
+
+Operads.hs:49:40: error:
+    Variable not in scope: mst2 :: Forest MoveTree m0 m1
+   |
+49 |         (Fan trees) = compose (Fan ts) mst2
+   |                                        ^^^^
+Failed, two modules loaded.
+ghci> Leaving GHCi.

@@ -70,3 +70,8 @@ splitForest (SS (sm :: SNat m_1))
                               (Proxy :: Proxy i4) of
                     Dict -> k (Cons t m_frag, n_frag)
         )
+
+data Proxy t = Proxy
+
+plusAssoc :: p a -> q b -> r c -> Dict (((a+b) + c) ~ (a + (b+c)))
+plusAssoc _ _ _ = unsafeCoerce (Dict :: Dict (a~a))
