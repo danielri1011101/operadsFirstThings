@@ -35,68 +35,23 @@ data Dict :: Constraint -> * where
 plusZ :: forall n. Dict (n ~ (n + Z))
 plusZ = unsafeCoerce (Dict :: Dict (n ~ n))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+-- Define composition "recursively", from ground-up
+-- There seems to be an "obvious lambda" to provide as the last argument
+-- of the call to splitForest.
 instance Operad MoveTree where
   ident = Leaf
   compose Leaf (Cons (t :: MoveTree m) Nil) =
     case plusZ :: Dict (m ~ (m + Z)) of Dict -> t
   compose (Fan ((mv, t) :+ ts)) frt =
-    let ss_l = grade t
-        sk = grade ts
-    in splitForest ss_l sk frt $
-           (
-            \ (l_frag, k_frag) ->
-              let tt = compose t l_frag
-                  (Fan trees) = compose (Fan ts) k_frag
-              in Fan ((mv, tt) :+ trees)
-           )
---  in Fan of splitForest evaluated at the "obvious lambda".
+    let ans = splitForest (grade t) (grade ts) frt lambda
+        lambda = \(mst1, mst2) -> Fan ((mv,tree) :+ trees)
+        tree = compose t mst1
+        (Fan trees) = compose (Fan ts) mst2
+    in ans
   compose _ _ = error "Composition undefined!"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+-- Type signature: existential quantifier as a continuation:
+-- Add base case.
 splitForest :: forall m n i f r. SNat m -> SNat n -> Forest f i (m+n) ->
                (
                 forall i1 i2. (i1+i2) ~ i => 
