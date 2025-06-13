@@ -35,31 +35,6 @@ data Dict :: Constraint -> * where
 plusZ :: forall n. Dict (n ~ (n + Z))
 plusZ = unsafeCoerce (Dict :: Dict (n ~ n))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 instance Operad MoveTree where
   ident = Leaf
   compose Leaf (Cons (t :: MoveTree m) Nil) =
@@ -76,26 +51,6 @@ instance Operad MoveTree where
            )
 --  in Fan of splitForest evaluated at the "obvious lambda".
   compose _ _ = error "Composition undefined!"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 splitForest :: forall m n i f r. SNat m -> SNat n -> Forest f i (m+n) ->
                (
