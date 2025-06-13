@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1749832545 "log250713.tex" "log250713.pdf" "log250713" 1749832546
+["pdflatex"] 1749833779 "log250713.tex" "log250713.pdf" "log250713" 1749833779
   "/etc/texmf/web2c/texmf.cnf" 1647538798 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/profesor/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/tctt0800.600pk" 1749827155 7392 dce1481655db32db74be6b94e9a4f835 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -135,12 +135,14 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1744215298 165012 f177baa1c39a3ebd62c3096a43521a0d ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1744215306 5011384 ff6a4dd239e7f07d325756b587a3c2e4 ""
-  "DocCode.hs" 1749827055 919 c459b3eba0dc73570138253dbe990eb3 ""
+  "DocCode.hs" 1749833662 1349 0d9d726f2815427f683f355c11c93b81 ""
+  "bigPic.png" 1749766414 69263 28e8729715d23fab38342e6d16fd9644 ""
   "forestSplit.png" 1749766459 75940 07a4f931dd9f3335352cd055a58b53e1 ""
-  "log250713.aux" 1749832546 917 4272c1a2f58c5525c89fc26fa3b49ae8 "pdflatex"
-  "log250713.tex" 1749832544 1343 83feb293e2e2e768fdbd904104a3053b ""
+  "log250713.aux" 1749833779 1001 b7217c4a1eb1ffeeeb0d4ac58978e18c "pdflatex"
+  "log250713.tex" 1749833775 1831 2b1a0e522b6b0e23ecb8b05570e591dd ""
   "preambleGen.tex" 1749826461 1070 060fa257bc9adcb81b0846d5d96a29b1 ""
+  "result.png" 1749766569 73607 6ceee6662a3969c7be0f9540b554c20d ""
   (generated)
+  "log250713.aux"
   "log250713.pdf"
   "log250713.log"
-  "log250713.aux"

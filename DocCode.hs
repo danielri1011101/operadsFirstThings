@@ -32,3 +32,15 @@ splitForest (SS (sl :: SNat l))
                        (j2'' :: Proxy j2'') of
         Dict -> c (Cons t lrdr , krdr)
     )
+
+instance Operad MoveTree where
+  ident = Leaf
+  compose Leaf (Cons (t :: MoveTree m) Nil) =
+    case plusZ :: Dict (m ~ (m + Z)) of Dict -> t
+  compose (Fan ((mv, t) :+ ts)) frt =
+    let ans = splitForest (grade t) (grade ts) frt lambda
+        lambda = \(mst1, mst2) -> Fan ((mv,tree) :+ trees)
+        tree = compose t mst1
+        (Fan trees) = compose (Fan ts) mst2
+    in ans
+  compose _ _ = error "Composition undefined!"

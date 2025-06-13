@@ -215,6 +215,15 @@ INPUT DocCode.hs
 INPUT DocCode.hs
 INPUT DocCode.hs
 INPUT DocCode.hs
+INPUT DocCode.hs
+INPUT DocCode.hs
+INPUT DocCode.hs
+INPUT bigPic.png
+INPUT ./bigPic.png
+INPUT ./bigPic.png
+INPUT result.png
+INPUT ./result.png
+INPUT ./result.png
 INPUT log250713.aux
 INPUT /home/profesor/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/tctt0800.600pk
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb

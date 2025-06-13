@@ -65,4 +65,24 @@ are
 
 \lstinputlisting[language=Haskell, firstline=1, lastline=7]{DocCode.hs}
 
+\bigskip
+\bigskip
+
+Therefore, the main challenge in making move trees an operad instance is
+defining the \texttt{compose} function, especially in the recursive case.
+
+\bigskip
+
+Here's an overview of the instantiation:
+
+\lstinputlisting[language=Haskell, firstline=36, lastline=46]{DocCode.hs}
+
+This depicts the composition arguments:
+
+\includegraphics[width=0.7\textwidth]{bigPic.png}
+
+And this is a scheme of the composition's result:
+
+\includegraphics[width=0.7\textwidth]{result.png}
+
 \end{document}
