@@ -1,0 +1,54 @@
+%%%%%%%%%%%%%%%
+
+\usepackage[utf8]{inputenc}
+% \usepackage[spanish]{babel}
+% \usepackage[top=1in, bottom=1in, left=1.2in, right=1.2in]{geometry}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{wasysym}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{tikz}
+
+% sets
+\newcommand{\NN}{\mathbf{N}}
+\newcommand{\ZZ}{\mathbf{Z}}
+\newcommand{\QQ}{\mathbf{Q}}
+\newcommand{\RR}{\mathbf{R}}
+\newcommand{\Zpos}{\ZZ^{+}}
+\newcommand{\Rpos}{\RR^{+}}
+
+% brackets
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+
+% formal statements
+\newtheorem{prop}{Proposition}
+
+\theoremstyle{plain}
+\newtheorem{clm}{Claim}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+
+\newtheorem{exl}{Example}
+
+\theoremstyle{remark}
+\newtheorem{rmk}{Remark}
+
+% vulgar display of code
+
+\lstdefinestyle{astyle}{
+	commentstyle=\color{blue},
+	keywordstyle=\color{purple},
+	numberstyle=\tiny\color{gray},
+	stringstyle=\color{green},
+	basicstyle=\ttfamily\footnotesize,
+	tabsize=2
+}
+
+\lstset{style=astyle}

@@ -1,0 +1,68 @@
+\documentclass{amsart}
+
+\input{preambleGen}
+
+\title{Work log of June 13 2025}
+\author{Daniel R. Barrero R.}
+% \date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{General}
+
+\begin{itemize}
+	\item In \texttt{splitForest}, the typed value \texttt{(lrdr,krdr)} is
+		matched against the typed value \texttt{plusAssoc j1 j2' j2''}.
+\end{itemize}
+
+\newpage
+
+\section{Type signatures and function evaluations}
+
+\bigskip
+\bigskip
+
+\subsection{}
+
+The type signature of the \texttt{splitForest} function is
+
+\lstinputlisting[language=Haskell, firstline=17, lastline=22]{DocCode.hs}
+
+\bigskip
+\bigskip
+
+And the evaluation of its recursive case is given by
+
+\lstinputlisting[language=Haskell, firstline=23, lastline=34]{DocCode.hs}
+
+\bigskip
+\bigskip
+
+this can be visualized in the following picture:
+
+\bigskip
+\bigskip
+
+\includegraphics[width=0.8\textwidth]{forestSplit.png}
+
+\newpage
+
+\subsection{} 
+
+The signature of the \texttt{Operad} typeclass is
+
+\lstinputlisting[language=Haskell, firstline=9, lastline=11]{DocCode.hs}
+
+\bigskip
+\bigskip
+
+And our instance of interest is the type \texttt{MoveTree}, which is
+parametrized by the \texttt{Nat} kind. Its signature is coupled with
+that of \texttt{Trees}, also parametrized by \texttt{Nat}. These signatures
+are
+
+\lstinputlisting[language=Haskell, firstline=1, lastline=7]{DocCode.hs}
+
+\end{document}

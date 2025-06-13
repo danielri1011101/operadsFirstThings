@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2025.4.9)  12 JUN 2025 17:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2025.4.9)  13 JUN 2025 11:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**log250712.tex
-(./log250712.tex
+**log250713.tex
+(./log250713.tex
 LaTeX2e <2020-02-02> patch level 2
 L3 programming layer <2020-02-14>
 (/usr/share/texlive/texmf-dist/tex/latex/amscls/amsart.cls
@@ -480,8 +480,8 @@ File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count290
 \l__pdf_internal_box=\box62
 )
-(./log250712.aux)
-\openout1 = `log250712.aux'.
+(./log250713.aux)
+\openout1 = `log250713.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
 LaTeX Font Info:    ... okay on input line 9.
@@ -542,35 +542,42 @@ File: lstlang1.sty 2019/09/10 1.8c listings language file
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang2.sty
 File: lstlang2.sty 2019/09/10 1.8c listings language file
-) (./Operad.hs)
-[2]
-<bigPic.png, id=21, 660.4675pt x 752.8125pt>
-File: bigPic.png Graphic file (type png)
-<use bigPic.png>
-Package pdftex.def Info: bigPic.png  used on input line 29.
-(pdftex.def)             Requested size: 251.9989pt x 287.2319pt.
- [3 <./bigPic.png>] (./log250712.aux) ) 
+) (./DocCode.hs)
+(./DocCode.hs
+LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
+27.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmtt.fd
+File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+))
+<forestSplit.png, id=16, 923.45pt x 620.3175pt>
+File: forestSplit.png Graphic file (type png)
+<use forestSplit.png>
+Package pdftex.def Info: forestSplit.png  used on input line 48.
+(pdftex.def)             Requested size: 288.0011pt x 193.46066pt.
+
+[2 <./forestSplit.png>] (./DocCode.hs) (./DocCode.hs) [3] (./log250713.aux) ) 
 Here is how much of TeX's memory you used:
- 15702 strings out of 483065
- 287855 string characters out of 5963551
- 686076 words of memory out of 5000000
- 30311 multiletter control sequences out of 15000+600000
- 539524 words of font info for 54 fonts, out of 8000000 for 9000
+ 15756 strings out of 483065
+ 288719 string characters out of 5963551
+ 687468 words of memory out of 5000000
+ 30356 multiletter control sequences out of 15000+600000
+ 539475 words of font info for 54 fonts, out of 8000000 for 9000
  242 hyphenation exceptions out of 8191
- 63i,6n,62p,410b,1696s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on log250712.pdf (3 pages, 143469 bytes).
+ 63i,6n,62p,410b,1668s stack positions out of 5000i,500n,10000p,200000b,80000s
+ <
+/home/profesor/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/tctt0800.600p
+k></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmtt8.pfb>
+Output written on log250713.pdf (3 pages, 145326 bytes).
 PDF statistics:
- 56 PDF objects out of 1000 (max. 8388607)
- 39 compressed objects within 1 object stream
+ 57 PDF objects out of 1000 (max. 8388607)
+ 40 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 

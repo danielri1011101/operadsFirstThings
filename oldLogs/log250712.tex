@@ -1,8 +1,8 @@
 \documentclass{amsart}
 
-\input{preambleHomeworks}
+\input{preambleGen}
 
-\title{Work log of June 11 2025}
+\title{Work log of June 12 2025}
 \author{Daniel R. Barrero R.}
 % \date{\today}
 
@@ -10,33 +10,22 @@
 
 \maketitle
 
-% No idea how to use these <++> place holders.
-Existence types are defined (by Pierce) as  
-
-$$
-\exists X . T := \forall Y . (\forall X . T \to Y) \to Y.
-$$
-
-We can provide the following \emph{informal} validation of it in
-terms of classical logic:
-
-\begin{eqnarray*}
-	\exists X . T \vdash \\
-	\neg (\forall X . \neg T) \vdash \\
-	\neg (\forall X . \neg T \lor Y) \lor Y \vdash \\
-	(\forall X . T \to Y) \to Y \vdash \\
-	\forall Y . (\forall X . T \to Y) \to Y
-\end{eqnarray*}
-
-\section{comments}
+\section{TODOs and more}
 
 \begin{itemize}
-	\item Realized that the singleton type family \texttt{SNat n} makes the
-		\texttt{Nat} kind inhabitted.
-	\item I propose attempting to use \textbf{where} syntax to improve the
-		current readability given by \textbf{let} bindings.
-	\item At first glance, the most appropriate continuation to be the last
-		argument of \texttt{splitForest} is identity.
+	\item Include Operad composition picture.
+	\item Define Haskell listing manually. \texttt{<-- couldn't.}
+	\item \texttt{splitForest} is a \emph{pseudoinverse} to \texttt{Cons}.
+		Can't say it's an inverse because types don't match. But maybe
+		that can be worked around later.
 \end{itemize}
+
+\newpage
+
+\lstinputlisting[language=Haskell]{DocCode.hs}
+
+\newpage
+
+\includegraphics[width=0.7\textwidth]{bigPic.png}
 
 \end{document}
