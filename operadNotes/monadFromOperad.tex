@@ -20,10 +20,41 @@ $$
 \mathtt{f}\ X = \bigoplus_{j \geq 0} f(j) \otimes_{k[\Sigma_j]} X^j
 $$
 
-\subsection{Tensor product over non-commutative rings.} The definition of the monad associated to
-an operad involves tensor product over the group ring $k[\Sigma_j]$, which is non-commutative.
-I will write down what I think the definitions should be\footnote{After confirming these, I will
-hopefully also add some \emph{motivation} for their use.}.
+It can be given a monad structure via the maps $u : X \to \mathtt{f}\ X$ (unit/\texttt{return})
+and $\mu : \mathtt{f} \ (\mathtt{f} \ X) \to \mathtt{f} \ X$ (multiplication/\texttt{join}).
+
+\bigskip
+
+\noindent The unit map is given by $u(x) = \fone \otimes x$, where $\fone \in f(1)$ denotes the
+composition identity element. The multiplication map $\mu$, on the other hand, is given by the
+composition
+
+\begin{displaymath}
+	\begin{tikzcd}
+		f(n) \otimes_{k[G]}
+		\left( 
+			\left( 
+				f(j_1) \otimes_{k[G]} X^{j_1}
+			\right) \otimes \cdots \otimes
+			\left( 
+				f(j_n) \otimes_{k[G]} X^{j_n}
+			\right)
+		\right) \arrow[d, "\text{shuffle}"] \\
+		\left( 
+			f(n) \otimes f(j_1) \otimes \cdots \otimes f(j_n)
+		\right) \otimes X^j \arrow[d, "\gamma \otimes \mathrm{id}"] \\
+		f(j) \otimes_{k[G]} X^j.
+	\end{tikzcd}
+\end{displaymath}
+
+We used $G$ and $j$ above to mean the symmetric group of appropriate rank and $\sum_{s=1}^{n} j_s$,
+respectively.
+
+\section{Tensor product over non-commutative rings.}
+The definition of the monad associated to an operad involves tensor product over the group ring
+$k[\Sigma_j]$, which is non-commutative.  I will write down what I think the definitions should
+be\footnote{After confirming these, I will hopefully also add some \emph{motivation} for their
+use.}.
 
 \begin{defn}
 	If the ring $k$ is commutative, then there is no distinction between left- and right-
@@ -71,12 +102,24 @@ $$
 
 where $A$ is a $k-$module with a right $G-$action and $B$ is a $k-$module with a left $G-$action.
 
-\section{Questions}
+\subsection{Questions}
 
 \begin{itemize}
 	\item What is $R \otimes_R R$ when $R$ is not commutative?
 	\item What is the defining mapping property of the abelian group $A \otimes_R B$ when $R$
 		is not commutative?
 \end{itemize}
+
+\section{Differential-graded (dg) modules}
+
+A dg $k-$module $(X_\cdot, d_\cdot)$ consists of the data $X_\cdot = (X_n : k-\mathbf{mod})_{n \in \ZZ}$ and 
+differential maps $d_\cdot = (d_n : X_n \to X_{n-1})_{n \in \ZZ}$ that are $k-$linear and $d_{n-1} \circ d_n = 0$.
+This is usually denoted $d^2 = 0$. When the context yields enough understanding, $(X_\cdot, d_\cdot)$ will be
+abbreviated $X$, and other analogous abbreviations follow.
+
+\begin{defn}
+	A map $f : X \to Y$ of dg modules is the data of maps $f_n : X_n \to Y_n$ for each $n \in \ZZ$, such
+	that $df = fd$, namely $d_n^Y \circ f_n = f_{n-1} \circ d_n^X$, for each $n \in \ZZ$.
+\end{defn}
 
 \end{document}
