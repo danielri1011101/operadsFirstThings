@@ -44,3 +44,9 @@ instance Operad MoveTree where
         (Fan trees) = compose (Fan ts) mst2
     in ans
   compose _ _ = error "Composition undefined!"
+
+-- Confused about this. See today's log.
+-- It seems this is profe's way to express the operad-given
+-- monad.
+data M f a where
+  M :: f n -> Vec n a -> M f a

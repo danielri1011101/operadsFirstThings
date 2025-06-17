@@ -32,3 +32,9 @@ splitForest (SS (sl :: SNat l))
                        (j2'' :: Proxy j2'') of
         Dict -> c (Cons t lrdr , krdr)
     )
+
+-- Confused about this. See today's log.
+-- It seems this is profe's way to express the operad-given
+-- monad.
+data M f a where
+  M :: f n -> Vec n a -> M f a
