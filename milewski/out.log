@@ -1,0 +1,104 @@
+GHCi, version 9.2.4: https://www.haskell.org/ghc/  :? for help
+ghci> [1 of 3] Compiling Numbers          ( Numbers.hs, interpreted )
+[2 of 3] Compiling LinAlg           ( LinAlg.hs, interpreted )
+[3 of 3] Compiling Main             ( Comonad.hs, interpreted )
+
+Comonad.hs:24:3: error:
+    • Couldn't match expected type: W f b
+                  with actual type: t0 -> Vec n0 b
+    • The equation(s) for ‘fmap’ have three value arguments,
+        but its type ‘(a -> b) -> W f a -> W f b’ has only two
+      In the instance declaration for ‘Functor (W f)’
+    • Relevant bindings include
+        fmap :: (a -> b) -> W f a -> W f b (bound at Comonad.hs:24:3)
+   |
+24 |   fmap phi rw_f_a tree = vecMap phi (rw_f_a tree)
+   |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^...
+
+Comonad.hs:24:38: error:
+    • Couldn't match expected type: t0 -> Vec n0 a
+                  with actual type: W f a
+    • The function ‘rw_f_a’ is applied to one value argument,
+        but its type ‘W f a’ has none
+      In the second argument of ‘vecMap’, namely ‘(rw_f_a tree)’
+      In the expression: vecMap phi (rw_f_a tree)
+    • Relevant bindings include
+        tree :: t0 (bound at Comonad.hs:24:19)
+        rw_f_a :: W f a (bound at Comonad.hs:24:12)
+        phi :: a -> b (bound at Comonad.hs:24:8)
+        fmap :: (a -> b) -> W f a -> W f b (bound at Comonad.hs:24:3)
+   |
+24 |   fmap phi rw_f_a tree = vecMap phi (rw_f_a tree)
+   |                                      ^^^^^^^^^^^
+
+Comonad.hs:26:11: error:
+    • Equations for ‘vecMap’ have different numbers of arguments
+        Comonad.hs:26:11-32
+        Comonad.hs:27:11-61
+    • In an equation for ‘fmap’:
+          fmap phi rw_f_a tree
+            = vecMap phi (rw_f_a tree)
+            where
+                vecMap :: (a -> b) -> Vec n a -> Vec n b
+                vecMap phi VNil = VNil
+                vecMap phi VCons a vs = VCons (f a) (vecMap phi vs)
+      The equation(s) for ‘fmap’ have three value arguments,
+        but its type ‘(a1 -> b1) -> W f a1 -> W f b1’ has only two
+      In the instance declaration for ‘Functor (W f)’
+   |
+26 |           vecMap phi VNil = VNil
+   |           ^^^^^^^^^^^^^^^^^^^^^^...
+Failed, two modules loaded.
+ghci> Leaving GHCi.
+GHCi, version 9.2.4: https://www.haskell.org/ghc/  :? for help
+ghci> [1 of 3] Compiling Numbers          ( Numbers.hs, interpreted )
+[2 of 3] Compiling LinAlg           ( LinAlg.hs, interpreted )
+[3 of 3] Compiling Main             ( Comonad.hs, interpreted )
+
+Comonad.hs:23:3: error:
+    • Couldn't match expected type: W f b
+                  with actual type: t0 -> Vec n0 b
+    • The equation(s) for ‘fmap’ have three value arguments,
+        but its type ‘(a -> b) -> W f a -> W f b’ has only two
+      In the instance declaration for ‘Functor (W f)’
+    • Relevant bindings include
+        fmap :: (a -> b) -> W f a -> W f b (bound at Comonad.hs:23:3)
+   |
+23 |   fmap phi rw_f_a tree = vecMap phi (rw_f_a tree)
+   |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^...
+
+Comonad.hs:23:38: error:
+    • Couldn't match expected type: t0 -> Vec n0 a
+                  with actual type: W f a
+    • The function ‘rw_f_a’ is applied to one value argument,
+        but its type ‘W f a’ has none
+      In the second argument of ‘vecMap’, namely ‘(rw_f_a tree)’
+      In the expression: vecMap phi (rw_f_a tree)
+    • Relevant bindings include
+        tree :: t0 (bound at Comonad.hs:23:19)
+        rw_f_a :: W f a (bound at Comonad.hs:23:12)
+        phi :: a -> b (bound at Comonad.hs:23:8)
+        fmap :: (a -> b) -> W f a -> W f b (bound at Comonad.hs:23:3)
+   |
+23 |   fmap phi rw_f_a tree = vecMap phi (rw_f_a tree)
+   |                                      ^^^^^^^^^^^
+
+Comonad.hs:25:11: error:
+    • Equations for ‘vecMap’ have different numbers of arguments
+        Comonad.hs:25:11-32
+        Comonad.hs:26:11-61
+    • In an equation for ‘fmap’:
+          fmap phi rw_f_a tree
+            = vecMap phi (rw_f_a tree)
+            where
+                vecMap :: (a -> b) -> Vec n a -> Vec n b
+                vecMap phi VNil = VNil
+                vecMap phi VCons a vs = VCons (f a) (vecMap phi vs)
+      The equation(s) for ‘fmap’ have three value arguments,
+        but its type ‘(a1 -> b1) -> W f a1 -> W f b1’ has only two
+      In the instance declaration for ‘Functor (W f)’
+   |
+25 |           vecMap phi VNil = VNil
+   |           ^^^^^^^^^^^^^^^^^^^^^^...
+Failed, two modules loaded.
+ghci> Leaving GHCi.

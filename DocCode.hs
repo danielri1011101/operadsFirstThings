@@ -58,6 +58,22 @@ data M f a where
 
 newtype W f a = W {runW :: forall n. f n -> Vec n a}
 
+-- drbr predicts:
+runW :: W -> forall n. f n -> Vec n a
+--    Polymorphic, I guess.
+--    Not what comes out in ghci, sorry.
+
+-- ghci says:
+runW :: W f a -> forall (n :: Nat). f n -> Vec n a
+-- meaning _n of Nat kind_, I.g.
+
+-- drbr predicts:
+W :: (forall (n :: Nat). f n -> Vec n a) -> W f a
+-- i.e. W is a placeholder for a tree-to-vector device...
+-- Coincides with ghci's answer.
+
 instance Functor (W f) where
   fmap :: (a -> b) -> W f a -> W f b
-  fmap phi 
+  fmap phi rw_f_a tree = vecMap phi $ rw_f_a tree
+    where vecMap phi VNil = VNil
+          vecMap phi VCons a vs = VCons (f a) (vecMap phi vs)
