@@ -1,0 +1,28 @@
+\documentclass{amsart}
+
+\input{preambleGen}
+
+\title{Work log of June 18}
+\author{Daniel R. Barrero R.}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{}
+
+The comonad defnition as a typeclass is
+
+\lstinputlisting[language=Haskell, firstline=48, lastline=50]{DocCode.hs}
+
+And in Milewski's tic-tac-toe, \emph{the evaluator} will be a comonad insntance,
+apparently. This evaluator defines a tree-to-vector behavior:
+
+\lstinputlisting[language=Haskell, firstline=59, lastline=59]{DocCode.hs}
+
+The ``obvious'' way in which this can be made into a functor doesn't occur
+to me. I must review \emph{record syntax} (lyahfgg) and universally quantified
+types (Pierce).
+
+\end{document}

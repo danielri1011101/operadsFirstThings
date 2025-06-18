@@ -45,8 +45,19 @@ instance Operad MoveTree where
     in ans
   compose _ _ = error "Composition undefined!"
 
--- Confused about this. See today's log.
--- It seems this is profe's way to express the operad-given
--- monad.
+class Functor w => Comonad w where
+  extract :: w a -> a
+  duplicate :: w a -> w (w a)
+
+class Functor m => Monad m where
+  return :: a -> m a
+  join :: m (m a) -> m a
+
 data M f a where
   M :: f n -> Vec n a -> M f a
+
+newtype W f a = W {runW :: forall n. f n -> Vec n a}
+
+instance Functor (W f) where
+  fmap :: (a -> b) -> W f a -> W f b
+  fmap phi 
