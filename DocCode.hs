@@ -72,13 +72,22 @@ W :: (forall (n :: Nat). f n -> Vec n a) -> W f a
 -- i.e. W is a placeholder for a tree-to-vector device...
 -- Coincides with ghci's answer.
 
-instance Functor (W f) where
-  fmap :: (a -> b) -> W f a -> W f b
-  fmap phi rw_f_a tree = vecMap phi $ rw_f_a tree
-    where vecMap phi VNil = VNil
-          vecMap phi VCons a vs = VCons (f a) (vecMap phi vs)
-
 -- Logging dialog with ghci:
 
 :k W
 > (Nat -> *) -> * -> *
+
+instance Functor (Vec n) where
+  fmap f VNil = VNil
+  fmap f (VCons a vs) = VCons (f a) (fmap f vs)
+
+instance Functor (W f) where
+  fmap g (W k) =
+    W (
+       \ f_n -> fmap g (k f_n)
+      )
+
+extract :: W f a -> a
+extract (W k) = case k ident of VCons a0 VNil -> a0
+
+duplicate' :: W f a -> W f (W f a)

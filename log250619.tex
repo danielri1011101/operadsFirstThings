@@ -36,6 +36,26 @@ And that of \texttt{W} is
 Also, \texttt{ghci} gives the following answer when asked for the kind of
 \texttt{W}:
 
-\lstinputlisting[language=Haskell, firstline=83, lastline=84]{DocCode.hs}
+\lstinputlisting[language=Haskell, firstline=77, lastline=78]{DocCode.hs}
+
+Since a \texttt{Comonad} is also a \texttt{Functor}, we must first make a
+functor out of \texttt{W f}. For this, we first make \texttt{Vec n} into a
+functor via
+
+\lstinputlisting[language=Haskell, firstline=80, lastline=82]{DocCode.hs}
+
+And then \texttt{W f} with
+
+\lstinputlisting[language=Haskell, firstline=84, lastline=88]{DocCode.hs}
+
+Now, to obtain a \texttt{Comonad} instance, we must define the \texttt{extract}
+and \texttt{duplicate} maps. The first one is
+
+\lstinputlisting[language=Haskell, firstline=90, lastline=91]{DocCode.hs}
+
+Given the functor he has defined, as well as the \texttt{extract} function
+above, one would expect the type of his \texttt{duplicate} to be
+
+\lstinputlisting[language=Haskell, firstline=93, lastline=93]{DocCode.hs}
 
 \end{document}
