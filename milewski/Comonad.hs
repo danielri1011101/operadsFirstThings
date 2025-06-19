@@ -4,6 +4,7 @@
 
 import Numbers
 import LinAlg
+import Operads
 
 -- extract is the counit.
 -- duplicate is the comultiplication.
@@ -27,9 +28,29 @@ data M f a where
 
 newtype W f a = W {runW :: forall n. f n -> Vec n a}
 
+instance Functor (Vec n) where
+  fmap f VNil = VNil
+  fmap f (VCons x xs) = VCons (f x) (fmap f xs)
+
 instance Functor (W f) where
   fmap :: (a -> b) -> W f a -> W f b
   fmap g (W (k :: forall n. f n -> Vec n a)) =
     W (
        \f_n -> fmap g (k f_n)
       )
+
+extract' :: (Operad f) => W f a -> a
+extract' (W k) = case k ident of VCons a0 VNil -> a0
+
+-- take a value and a vector, and replace the vector's coefficients with
+-- the value.
+replicate' :: b -> Vec n a -> Vec n b
+replicate' b0 VNil = VNil
+replicate' b0 (VCons a0 as) = VCons b0 (replicate' b0 as)
+
+-- trying out a naive duplicate:
+duplicate' :: W f a -> W f (W f a)
+duplicate' (W k) =
+  W (
+     \ t_n -> replicate' (W k) (k t_n)
+    )
