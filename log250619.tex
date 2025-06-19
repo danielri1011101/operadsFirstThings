@@ -1,0 +1,41 @@
+\documentclass{amsart}
+
+\input{preambleGen}
+
+\title{Work log of June 19}
+\author{Daniel R. Barrero R.}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{}
+
+The comonad defnition as a typeclass is
+
+\lstinputlisting[language=Haskell, firstline=48, lastline=50]{DocCode.hs}
+
+And in Milewski's tic-tac-toe, \emph{the evaluator} will be a comonad insntance,
+apparently. This evaluator defines a tree-to-vector behavior:
+
+\lstinputlisting[language=Haskell, firstline=59, lastline=59]{DocCode.hs}
+
+The following typings follow:
+
+\bigskip
+
+The type of \texttt{runW} is
+
+\lstinputlisting[language=Haskell, firstline=67, lastline=67]{DocCode.hs}
+
+And that of \texttt{W} is
+
+\lstinputlisting[language=Haskell, firstline=71, lastline=71]{DocCode.hs}
+
+Also, \texttt{ghci} gives the following answer when asked for the kind of
+\texttt{W}:
+
+\lstinputlisting[language=Haskell, firstline=83, lastline=84]{DocCode.hs}
+
+\end{document}

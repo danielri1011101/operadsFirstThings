@@ -77,3 +77,8 @@ instance Functor (W f) where
   fmap phi rw_f_a tree = vecMap phi $ rw_f_a tree
     where vecMap phi VNil = VNil
           vecMap phi VCons a vs = VCons (f a) (vecMap phi vs)
+
+-- Logging dialog with ghci:
+
+:k W
+> (Nat -> *) -> * -> *
