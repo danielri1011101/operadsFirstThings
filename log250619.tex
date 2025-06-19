@@ -58,4 +58,17 @@ above, one would expect the type of his \texttt{duplicate} to be
 
 \lstinputlisting[language=Haskell, firstline=93, lastline=93]{DocCode.hs}
 
+A naive function that typechecks is
+
+\lstinputlisting[language=Haskell, firstline=102, lastline=106]{DocCode.hs}
+
+Where the \texttt{replycate} function takes a value \texttt{b0} and a
+vector of length $n$ with type-\texttt{a} coefficients and produces a vector
+of the same length with $n$ copies of the value \texttt{b0}:
+
+\lstinputlisting[language=Haskell, firstline=97, lastline=99]{DocCode.hs}
+
+This (hopefully) suffices to make \texttt{W f} a naive instance of the
+\texttt{Comonad} typeclass:
+
 \end{document}

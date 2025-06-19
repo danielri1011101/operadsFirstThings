@@ -91,3 +91,20 @@ extract :: W f a -> a
 extract (W k) = case k ident of VCons a0 VNil -> a0
 
 duplicate' :: W f a -> W f (W f a)
+
+-- take a value and a vector, and replace the vector's coefficients with
+-- the value.
+replycate :: b -> Vec n a -> Vec n b
+replycate b0 VNil = VNil
+replycate b0 (VCons a0 as) = VCons b0 (replycate b0 as)
+
+-- trying out a naive duplicate:
+duplicate' :: W f a -> W f (W f a)
+duplicate' (W k) =
+  W (
+     \ t_n -> replycate (W k) (k t_n)
+    )
+
+instance Operad f => Comonad (W f) where
+extract = extract'
+duplicate = duplicate'
