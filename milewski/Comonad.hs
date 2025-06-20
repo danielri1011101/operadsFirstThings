@@ -54,3 +54,7 @@ duplicate' (W k) =
   W (
      \ t_n -> replicate' (W k) (k t_n)
     )
+
+instance Operad f => Comonad (W f) where
+  extract = extract'
+  duplicate = duplicate'

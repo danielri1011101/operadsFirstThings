@@ -1,0 +1,76 @@
+\documentclass{amsart}
+
+\input{preambleGen}
+
+\title{Work log of June 19}
+\author{Daniel R. Barrero R.}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{}
+
+The comonad defnition as a typeclass is
+
+\lstinputlisting[language=Haskell, firstline=48, lastline=50]{DocCode.hs}
+
+And in Milewski's tic-tac-toe, \emph{the evaluator} will be a comonad insntance,
+apparently. This evaluator defines a tree-to-vector behavior:
+
+\lstinputlisting[language=Haskell, firstline=59, lastline=59]{DocCode.hs}
+
+The following typings follow:
+
+\bigskip
+
+The type of \texttt{runW} is
+
+\lstinputlisting[language=Haskell, firstline=67, lastline=67]{DocCode.hs}
+
+And that of \texttt{W} is
+
+\lstinputlisting[language=Haskell, firstline=71, lastline=71]{DocCode.hs}
+
+Also, \texttt{ghci} gives the following answer when asked for the kind of
+\texttt{W}:
+
+\lstinputlisting[language=Haskell, firstline=77, lastline=78]{DocCode.hs}
+
+Since a \texttt{Comonad} is also a \texttt{Functor}, we must first make a
+functor out of \texttt{W f}. For this, we first make \texttt{Vec n} into a
+functor via
+
+\lstinputlisting[language=Haskell, firstline=80, lastline=82]{DocCode.hs}
+
+And then \texttt{W f} with
+
+\lstinputlisting[language=Haskell, firstline=84, lastline=88]{DocCode.hs}
+
+Now, to obtain a \texttt{Comonad} instance, we must define the \texttt{extract}
+and \texttt{duplicate} maps. The first one is
+
+\lstinputlisting[language=Haskell, firstline=90, lastline=91]{DocCode.hs}
+
+Given the functor he has defined, as well as the \texttt{extract} function
+above, one would expect the type of his \texttt{duplicate} to be
+
+\lstinputlisting[language=Haskell, firstline=93, lastline=93]{DocCode.hs}
+
+A naive function that typechecks is
+
+\lstinputlisting[language=Haskell, firstline=102, lastline=106]{DocCode.hs}
+
+Where the \texttt{replycate} function takes a value \texttt{b0} and a
+vector of length $n$ with type-\texttt{a} coefficients and produces a vector
+of the same length with $n$ copies of the value \texttt{b0}:
+
+\lstinputlisting[language=Haskell, firstline=97, lastline=99]{DocCode.hs}
+
+This suffices to make \texttt{W f} an instance of the
+\texttt{Comonad} typeclass:
+
+\lstinputlisting[language=Haskell, firstline=108, lastline=110]{DocCode.hs}
+
+\end{document}
