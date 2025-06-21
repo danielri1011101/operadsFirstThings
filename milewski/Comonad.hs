@@ -36,8 +36,8 @@ instance Functor (W f) where
   fmap :: (a -> b) -> W f a -> W f b
   fmap g (W (k :: forall n. f n -> Vec n a)) =
     W (
-       \f_n -> fmap g (k f_n)
-      )
+      \f_n -> fmap g (k f_n)
+    )
 
 extract' :: (Operad f) => W f a -> a
 extract' (W k) = case k ident of VCons a0 VNil -> a0
@@ -52,9 +52,13 @@ replicate' b0 (VCons a0 as) = VCons b0 (replicate' b0 as)
 duplicate' :: W f a -> W f (W f a)
 duplicate' (W k) =
   W (
-     \ t_n -> replicate' (W k) (k t_n)
-    )
+    \ t_n -> replicate' (W k) (k t_n)
+  )
 
 instance Operad f => Comonad (W f) where
   extract = extract'
   duplicate = duplicate'
+
+go :: f (n+m) -> SNat n -> SNat m -> Vec m (W f a)
+go _ _ SZ = VNil
+go t s_n (SS s_m)
