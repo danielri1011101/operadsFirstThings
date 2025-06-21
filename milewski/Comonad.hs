@@ -57,8 +57,13 @@ duplicate' (W k) =
 
 instance Operad f => Comonad (W f) where
   extract = extract'
-  duplicate = duplicate'
+  duplicate = d_uplicate
 
 go :: f (n+m) -> SNat n -> SNat m -> Vec m (W f a)
 go _ _ SZ = VNil
-go t s_n (SS s_m)
+
+d_uplicate :: Graded f => W f a -> W f (W f a)
+d_uplicate = \ (W k) ->
+  W (
+    \ t -> go t SZ (grade t)
+  )
