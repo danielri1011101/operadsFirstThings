@@ -32,11 +32,12 @@ idents SZ = Nil
 idents (SS s_n) = ident `Cons` idents s_n
 
 plantTreeAt :: Operad f => SNat k -> SNat m -> f n ->
-                           Forest f (k + (n+m)) (k + (S m))
+                           Forest f (k + (n+m)) (k + S m)
 plantTreeAt k m t_n =
   prependIdents k (t_n `Cons` idents m)
     where
-  prependIdents :: SNat k -> Forest f m n -> Forest f (k+m) (k+n)
+  prependIdents :: Operad f => SNat k -> Forest f m n ->
+                               Forest f (k+m) (k+n)
   prependIdents SZ = \ frt -> frt
   prependIdents (SS s_k) frt = ident `Cons` prependIdents s_k frt
 
