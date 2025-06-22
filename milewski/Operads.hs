@@ -27,6 +27,19 @@ instance Graded Trees where
   grade NilT = SZ
   grade ((_, t) :+ ts) = grade t `plus` grade ts
 
+idents :: Operad f => SNat n -> Forest f n n
+idents SZ = Nil
+idents (SS s_n) = ident `Cons` idents s_n
+
+plantTreeAt :: Operad f => SNat k -> SNat m -> f n ->
+                           Forest f (k + (n+m)) (k + (S m))
+plantTreeAt k m t_n =
+  prependIdents k (t_n `Cons` idents m)
+    where
+  prependIdents :: SNat k -> Forest f m n -> Forest f (k+m) (k+n)
+  prependIdents SZ = \ frt -> frt
+  prependIdents (SS s_k) frt = ident `Cons` prependIdents s_k frt
+
 -- ConstraintKinds language extension...
 -- Seems like making a type out of a constraint "by force"...
 data Dict :: Constraint -> * where
