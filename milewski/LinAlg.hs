@@ -35,6 +35,19 @@ ixV (FinS fin_n) (VCons _ as) = ixV fin_n as
 -- Implicitly, m = n+k.
 -- h_a :/ head of type a.
 -- t_as :/ tail consisting of a-coefficients.
+-- Attempt replacing recursive case with _case_ expression.
+--  v_n_k :: Vec ((1+n)+k) a |-- t_as :: Vec (n+k) a
+--
 splitV :: SNat n -> SNat k -> Vec (n+k) a -> (Vec n a, Vec k a) 
-splitV SZ _ v = (VNil, v)
-splitV (SS s_n) s_k (h_a `VCons` t_as)
+splitV s_n s_k v_n_k =
+    case (s_n, s_k, v_n_k) 
+    of (SZ, _, v) -> (VNil, v)
+       (SS s_n, s_k, (h_a `VCons` t_as)) -> (h_a `VCons` lv, rv)
+         where (lv, rv) = splitV s_n s_k t_as
+
+split3V :: SNat k -> SNat m -> SNat n -> Vec (k + (m + n)) a ->
+           (Vec k a, Vec m a,Vec n a)
+split3V k m n v = (vk, vm, vn)
+  where
+    (vm, vn) = splitV m n vmn
+    (vk, vmn) = splitV k (m `plus` n) v
