@@ -39,7 +39,7 @@ plantTreeAt k m t_n =
   prependIdents :: Operad f => SNat k -> Forest f m n ->
                                Forest f (k+m) (k+n)
   prependIdents SZ = \ frt -> frt
-  prependIdents (SS s_k) frt = ident `Cons` prependIdents s_k frt
+  prependIdents (SS s_k) = \ frt -> ident `Cons` prependIdents s_k frt
 
 -- ConstraintKinds language extension...
 -- Seems like making a type out of a constraint "by force"...
@@ -96,5 +96,5 @@ plusAssoc :: p a -> q b -> r c -> Dict (((a+b) + c) ~ (a + (b+c)))
 plusAssoc _ _ _ = unsafeCoerce (Dict :: Dict (a~a))
 
 -- Successor associativity: 1 + (a + b) ~ (1 + a) + b
-succAssoc :: p a -> q b -> Dict (S (a + b) ~ (S a) + b)
-succAssoc _ _ = unsafeCoerce Dict (a ~ a)
+succAssoc :: p a -> q b -> Dict ((a + S b) ~ S(a + b))
+succAssoc _ _ = unsafeCoerce (Dict :: Dict (a ~ a))
