@@ -108,3 +108,15 @@ duplicate' (W k) =
 instance Operad f => Comonad (W f) where
 extract = extract'
 duplicate = duplicate'
+
+plusZ :: forall n. Dict (n ~ (n + Z))
+plusZ = unsafeCoerce (Dict :: Dict (n ~ n))
+
+plusZ' :: x n -> Dict (n ~ (n + Z))
+plusZ' _  = unsafeCoerce (Dict :: Dict (n ~ n))
+
+plusAssoc :: p a -> q b -> r c -> Dict (((a + b) + c) ~ (a + (b + c)))
+plusAssoc _ _ _ = unsafeCoerce (Dict :: Dict (a ~ a))
+
+plusAssoc' :: forall a b c. Dict (((a + b) + c) ~ (a + (b + c)))
+plusAssoc' = unsafeCoerce (Dict :: Dict (a ~ a))

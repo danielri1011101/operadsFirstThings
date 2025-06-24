@@ -12,11 +12,35 @@
 
 \section{}
 
-According to Pierce, the operational view of $\forall X . T$ is that is values are functions
-which map a type $S$ to a value of type $[X \mapsto S]T$. Namely,
+According to Pierce, the operational view of the type $\forall X . T$ is that is values are
+functions which map a type $S$ to a value of type $[X \mapsto S]T$. Namely,
 
 \begin{eqnarray*}
-	v : \forall X . T \ \vdash \ v \ S : [X \mapsto S]T.
+	v : \forall X . T \ \ \ \vdash \ \ \ v \ S : [X \mapsto S]T.
 \end{eqnarray*}
+
+\bigskip
+
+Coherently, the coercion
+
+\lstinputlisting[language=Haskell, firstline=115, lastline=116]{DocCode.hs}
+
+\bigskip
+
+can replace the one used by Milewski, which is
+
+\lstinputlisting[language=Haskell, firstline=112, lastline=113]{DocCode.hs}
+
+\bigskip
+
+On the other hand, to coerce associativity of addition he uses
+
+\lstinputlisting[language=Haskell, firstline=118, lastline=119]{DocCode.hs}
+
+\bigskip
+
+So naturally the question arises whether it can be replaced by
+
+\lstinputlisting[language=Haskell, firstline=121, lastline=122]{DocCode.hs}
 
 \end{document}
