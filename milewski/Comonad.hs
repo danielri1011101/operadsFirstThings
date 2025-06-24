@@ -67,7 +67,8 @@ d_uplicate = \ (W k) ->
     where
   go :: f (n+m) -> SNat n -> SNat m -> Vec m (W f a)
   go _ _ SZ = VNil
-  go t s_n (SS s_m) = W k' `VCons` go t (SS s_n) s_m
+  go t s_n (SS s_m) = case succAssoc s_n s_m of
+    Dict -> W k' `VCons` go t (SS s_n) s_m
     where
   k' :: f p -> Vec p a
   k' t_p = middleV s_n (grade t_p) s_m

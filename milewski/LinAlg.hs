@@ -31,3 +31,10 @@ ixV FinZ (VCons a0 as) = a0
 ixV (FinS fin_n) (VCons _ as) = ixV fin_n as
 
 -- Do a 3-way split of a vector, whose rank is a parenthezised sum.
+
+-- Implicitly, m = n+k.
+-- h_a :/ head of type a.
+-- t_as :/ tail consisting of a-coefficients.
+splitV :: SNat n -> SNat k -> Vec (n+k) a -> (Vec n a, Vec k a) 
+splitV SZ _ v = (VNil, v)
+splitV (SS s_n) s_k (h_a `VCons` t_as)
