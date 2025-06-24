@@ -1,0 +1,112 @@
+GHCi, version 9.2.4: https://www.haskell.org/ghc/  :? for help
+ghci> [1 of 5] Compiling Numbers          ( Numbers.hs, interpreted )
+[2 of 5] Compiling LinAlg           ( LinAlg.hs, interpreted )
+[3 of 5] Compiling Trees            ( Trees.hs, interpreted )
+[4 of 5] Compiling Operads          ( Operads.hs, interpreted )
+[5 of 5] Compiling Main             ( Comonad.hs, interpreted )
+
+Comonad.hs:74:29: error:
+    • Could not deduce: a2 ~ a
+      from the context: m ~ 'S n1
+        bound by a pattern with constructor:
+                   SS :: forall (n1 :: Nat). SNat n1 -> SNat ('S n1),
+                 in an equation for ‘go’
+        at Comonad.hs:69:17-22
+      Expected: Vec (n + (p + n1)) a2
+        Actual: Vec (n + (p + n1)) a
+      ‘a2’ is a rigid type variable bound by
+        the type signature for:
+          k' :: forall (f2 :: Nat -> *) (p :: Nat) a2. f2 p -> Vec p a2
+        at Comonad.hs:72:11-30
+      ‘a’ is a rigid type variable bound by
+        the type signature for:
+          d_uplicate :: forall (f :: Nat -> *) a.
+                        Graded f =>
+                        W f a -> W f (W f a)
+        at Comonad.hs:62:1-46
+    • In the fourth argument of ‘middleV’, namely
+        ‘(k (t `compose` plantTreeAt s_n s_m t_p))’
+      In the expression:
+        middleV
+          s_n (grade t_p) s_m (k (t `compose` plantTreeAt s_n s_m t_p))
+      In an equation for ‘k'’:
+          k' t_p
+            = middleV
+                s_n (grade t_p) s_m (k (t `compose` plantTreeAt s_n s_m t_p))
+    • Relevant bindings include
+        k' :: f2 p -> Vec p a2 (bound at Comonad.hs:73:11)
+        k :: forall (n :: Nat). f n -> Vec n a (bound at Comonad.hs:63:15)
+        d_uplicate :: W f a -> W f (W f a) (bound at Comonad.hs:63:1)
+   |
+74 |                            (k (t `compose` plantTreeAt s_n s_m t_p))
+   |                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Comonad.hs:74:32: error:
+    • Could not deduce: f1 ~ f
+      from the context: m ~ 'S n1
+        bound by a pattern with constructor:
+                   SS :: forall (n1 :: Nat). SNat n1 -> SNat ('S n1),
+                 in an equation for ‘go’
+        at Comonad.hs:69:17-22
+      Expected: f (n + 'S n1)
+        Actual: f1 (n + m)
+      ‘f1’ is a rigid type variable bound by
+        the type signature for:
+          go :: forall (f1 :: Nat -> *) (n :: Nat) (m :: Nat) a1.
+                f1 (n + m) -> SNat n -> SNat m -> Vec m (W f1 a1)
+        at Comonad.hs:67:7-56
+      ‘f’ is a rigid type variable bound by
+        the type signature for:
+          d_uplicate :: forall (f :: Nat -> *) a.
+                        Graded f =>
+                        W f a -> W f (W f a)
+        at Comonad.hs:62:1-46
+    • In the first argument of ‘compose’, namely ‘t’
+      In the first argument of ‘k’, namely
+        ‘(t `compose` plantTreeAt s_n s_m t_p)’
+      In the fourth argument of ‘middleV’, namely
+        ‘(k (t `compose` plantTreeAt s_n s_m t_p))’
+    • Relevant bindings include
+        t :: f1 (n + m) (bound at Comonad.hs:69:10)
+        go :: f1 (n + m) -> SNat n -> SNat m -> Vec m (W f1 a1)
+          (bound at Comonad.hs:68:7)
+        k :: forall (n :: Nat). f n -> Vec n a (bound at Comonad.hs:63:15)
+        d_uplicate :: W f a -> W f (W f a) (bound at Comonad.hs:63:1)
+   |
+74 |                            (k (t `compose` plantTreeAt s_n s_m t_p))
+   |                                ^
+
+Comonad.hs:74:64: error:
+    • Could not deduce: f2 ~ f
+      from the context: m ~ 'S n1
+        bound by a pattern with constructor:
+                   SS :: forall (n1 :: Nat). SNat n1 -> SNat ('S n1),
+                 in an equation for ‘go’
+        at Comonad.hs:69:17-22
+      Expected: f p
+        Actual: f2 p
+      ‘f2’ is a rigid type variable bound by
+        the type signature for:
+          k' :: forall (f2 :: Nat -> *) (p :: Nat) a2. f2 p -> Vec p a2
+        at Comonad.hs:72:11-30
+      ‘f’ is a rigid type variable bound by
+        the type signature for:
+          d_uplicate :: forall (f :: Nat -> *) a.
+                        Graded f =>
+                        W f a -> W f (W f a)
+        at Comonad.hs:62:1-46
+    • In the third argument of ‘plantTreeAt’, namely ‘t_p’
+      In the second argument of ‘compose’, namely
+        ‘plantTreeAt s_n s_m t_p’
+      In the first argument of ‘k’, namely
+        ‘(t `compose` plantTreeAt s_n s_m t_p)’
+    • Relevant bindings include
+        t_p :: f2 p (bound at Comonad.hs:73:14)
+        k' :: f2 p -> Vec p a2 (bound at Comonad.hs:73:11)
+        k :: forall (n :: Nat). f n -> Vec n a (bound at Comonad.hs:63:15)
+        d_uplicate :: W f a -> W f (W f a) (bound at Comonad.hs:63:1)
+   |
+74 |                            (k (t `compose` plantTreeAt s_n s_m t_p))
+   |                                                                ^^^
+Failed, four modules loaded.
+ghci> Leaving GHCi.

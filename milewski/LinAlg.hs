@@ -46,8 +46,13 @@ splitV s_n s_k v_n_k =
          where (lv, rv) = splitV s_n s_k t_as
 
 split3V :: SNat k -> SNat m -> SNat n -> Vec (k + (m + n)) a ->
-           (Vec k a, Vec m a,Vec n a)
+           (Vec k a, Vec m a, Vec n a)
 split3V k m n v = (vk, vm, vn)
   where
     (vm, vn) = splitV m n vmn
     (vk, vmn) = splitV k (m `plus` n) v
+
+middleV :: SNat k -> SNat m -> SNat n -> Vec (k + (m + n)) a ->
+           Vec m a
+middleV k m n v = mid
+  where (_,mid,_) = split3V k m n v

@@ -59,17 +59,16 @@ instance Operad f => Comonad (W f) where
   extract = extract'
   duplicate = d_uplicate
 
-d_uplicate :: Graded f => W f a -> W f (W f a)
-d_uplicate = \ (W k) ->
-               W (
-                 \ t -> go t SZ (grade t)
-               )
+d_uplicate :: Operad f => W f a -> W f (W f a)
+d_uplicate (W k :: W f a) = W (
+                     \ t -> go t SZ (grade t)
+                   )
     where
-  go :: f (n+m) -> SNat n -> SNat m -> Vec m (W f a)
-  go _ _ SZ = VNil
-  go t s_n (SS s_m) = case succAssoc s_n s_m of
-    Dict -> W k' `VCons` go t (SS s_n) s_m
-    where
-  k' :: f p -> Vec p a
-  k' t_p = middleV s_n (grade t_p) s_m
-                   (k (t `compose` plantTreeAt s_n s_m t_p))
+      go :: f (n+m) -> SNat n -> SNat m -> Vec m (W f a)
+      go _ _ SZ = VNil
+      go t s_n (SS s_m) = case succAssoc s_n s_m of
+        Dict -> W k' `VCons` go t (SS s_n) s_m
+        where
+          k' :: f p -> Vec p a
+          k' t_p = middleV s_n (grade t_p) s_m
+                           (k (t `compose` plantTreeAt s_n s_m t_p))
