@@ -7,8 +7,6 @@ module Operads where
 
 import Numbers
 import Trees
-import Data.Kind
-import Unsafe.Coerce
 
 class Graded (f :: Nat -> *) where
   grade :: f n -> SNat n
@@ -41,18 +39,12 @@ plantTreeAt k m t_n =
   prependIdents SZ = \ frt -> frt
   prependIdents (SS s_k) = \ frt -> ident `Cons` prependIdents s_k frt
 
--- ConstraintKinds language extension...
--- Seems like making a type out of a constraint "by force"...
-data Dict :: Constraint -> * where
-  Dict :: a => Dict a
 
-plusZ :: forall n. Dict (n ~ (n + Z))
-plusZ = unsafeCoerce (Dict :: Dict (n ~ n))
 
 instance Operad MoveTree where
   ident = Leaf
   compose Leaf (Cons (t :: MoveTree m) Nil) =
-    case plusZ :: Dict (m ~ (m + Z)) of Dict -> t
+    case plusZ (Proxy :: Proxy m) of Dict -> t
   compose (Fan ((mv, t) :+ ts)) frt =
     let ss_l = grade t
         sk = grade ts
@@ -85,16 +77,4 @@ splitForest (SS (sm :: SNat m_1))
   )
 
 
----------- %%%%---------------------
----------- %%%%---------------------
--- Import ConstraintKinds lang. extension in Numbers module.
 
-
-data Proxy t = Proxy
-
-plusAssoc :: p a -> q b -> r c -> Dict (((a+b) + c) ~ (a + (b+c)))
-plusAssoc _ _ _ = unsafeCoerce (Dict :: Dict (a~a))
-
--- Successor associativity: 1 + (a + b) ~ (1 + a) + b
-succAssoc :: p a -> q b -> Dict ((a + S b) ~ S(a + b))
-succAssoc _ _ = unsafeCoerce (Dict :: Dict (a ~ a))

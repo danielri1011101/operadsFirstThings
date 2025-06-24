@@ -1,9 +1,12 @@
 {-# LANGUAGE DataKinds #-}
 {-# LANGUAGE GADTs #-}
 {-# LANGUAGE TypeFamilies #-}
-
+{-# LANGUAGE ConstraintKinds #-}
 
 module Numbers where
+
+import Data.Kind
+import Unsafe.Coerce
 
 data Nat = Z | S Nat
 
@@ -34,4 +37,27 @@ plus (SS n) m = SS (plus n m)
 
 -- Coercion of arithmetic properties:
 
+---------- %%%%---------------------
+---------- %%%%---------------------
+--
+-- Import ConstraintKinds lang. extension in Numbers module.
+--
+-- ConstraintKinds language extension...
+-- Seems like making a type out of a constraint "by force"...
+--
+--
 
+data Dict :: Constraint -> * where
+  Dict :: a => Dict a
+
+plusZ :: x n -> Dict (n ~ (n + Z))
+plusZ _ = unsafeCoerce (Dict :: Dict (n ~ n))
+
+data Proxy t = Proxy
+
+plusAssoc :: p a -> q b -> r c -> Dict (((a+b) + c) ~ (a + (b+c)))
+plusAssoc _ _ _ = unsafeCoerce (Dict :: Dict (a~a))
+
+-- Successor associativity: 1 + (a + b) ~ (1 + a) + b
+succAssoc :: p a -> q b -> Dict ((a + S b) ~ S (a + b))
+succAssoc _ _ = unsafeCoerce (Dict :: Dict (a ~ a))
