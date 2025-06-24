@@ -84,7 +84,17 @@ splitForest (SS (sm :: SNat m_1))
               Dict -> k (Cons t m_frag, n_frag)
   )
 
+
+---------- %%%%---------------------
+---------- %%%%---------------------
+-- Import ConstraintKinds lang. extension in Numbers module.
+
+
 data Proxy t = Proxy
 
 plusAssoc :: p a -> q b -> r c -> Dict (((a+b) + c) ~ (a + (b+c)))
 plusAssoc _ _ _ = unsafeCoerce (Dict :: Dict (a~a))
+
+-- Successor associativity: 1 + (a + b) ~ (1 + a) + b
+succAssoc :: p a -> q b -> Dict (S (a + b) ~ (S a) + b)
+succAssoc _ _ = unsafeCoerce Dict (a ~ a)

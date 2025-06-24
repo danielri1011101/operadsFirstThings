@@ -12,6 +12,10 @@ data Vec n m where
   VNil :: Vec Z a
   VCons :: a -> Vec n a -> Vec (S n) a
 
+vGrade :: Vec n a -> SNat n
+vGrade VNil = SZ
+vGrade (VCons a0 as) = SS (vGrade as)
+
 -- Matrices have two Nat number indices and a type
 -- _a_ for its coefficients. More formally, they are vectors
 -- of vectors.
@@ -25,3 +29,5 @@ headV (VCons x _) = x
 ixV :: Fin n -> Vec n a -> a
 ixV FinZ (VCons a0 as) = a0
 ixV (FinS fin_n) (VCons _ as) = ixV fin_n as
+
+-- Do a 3-way split of a vector, whose rank is a parenthezised sum.

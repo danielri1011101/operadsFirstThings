@@ -34,6 +34,4 @@ plus (SS n) m = SS (plus n m)
 
 -- Coercion of arithmetic properties:
 
--- Successor associativity: 1 + (a + b) ~ (1 + a) + b
-succAssoc :: p a -> q b -> Dict (S (a + b) ~ (S a) + b)
-succAssoc _ _ = unsafeCoerce Dict (a ~ a)
+
