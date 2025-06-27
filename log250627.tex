@@ -1,0 +1,35 @@
+\documentclass{amsart}
+
+\input{preambleGen}
+
+\title{Work log of June 27}
+\author{Daniel R. Barrero R.}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{}
+
+Decided on the following short-term plan to implement phylogenetic trees as a
+coproduct of operads:
+
+\subsection{} Understand the operations of $\mathrm{Phyl}$ as $\Rsemi-$labeled
+$\mathrm{Com}-$trees, as in Theorems 9 and 40 of \cite{baezOtter}.
+
+\subsection{} Modify the \texttt{MoveTree} type from the tic-tac-toe backend to
+have the trees labeled with real numbers instead of game moves.
+
+\subsection{} Use Milewski's definition of coproducts to obtain a map
+
+\begin{equation}
+	\mathrm{Com} \ + \ \Rsemi \ \to \ \mathtt{PhylTree}
+\end{equation}
+
+and prove it to be an isomorphism.
+
+\bibliographystyle{acm}
+\bibliography{\refsPrefix/refs}
+
+\end{document}

@@ -13,23 +13,34 @@
 \section{Free operads}
 
 Let $U : \mathrm{Op} \to \mathrm{Top}^{\NN}$ be the forgetful functor and let $F$ be its
-left adjoint. Its existence is a result of Boardman and Vogt in \cite{bv_hiasots}.
+left adjoint. Its existence is a result of Boardman and Vogt in \cite{bv-hiasots}.
 
 \section{The construction}
 
 Thanks to de $F,U$ adjoint pair there exists an epimorphism
 
-$$
-\epsilon : FU \ O \to O
-$$
+\begin{equation}\label{fu-epi}
+	\epsilon : FU \ O \to O
+\end{equation}
+
 
 for each operad $O$.
 
-% \includegraphics[width=0.5\textwidth]{\picPrefix/bigPic.png}
+Given two operads $O$ and $O'$, and drawing inspiration\footnote{We haven't established nor cited
+any relevant categorical properties for operads.} from the fact that left adjoints
+preserve colimits \cite{riehl-ctic}, we may define
+
+\begin{equation}\label{fu-coprod}
+	(FU \ O) \ + \ (FU \ O') \ := \ F \ \left( (U \ O) \ + \ (U \ O') \right)
+\end{equation}
 
 \section{Comments}
 
 \subsection{} The result by B \& V is that the forgetful functor is \emph{monadic.}
+
+\subsection{} The full statement that motivates \eqref{fu-coprod} is that
+\emph{Right adjoints preserve limits and left adjoints preserve colimits.} It can be found
+in \cite{riehl-ctic}.
 
 \bibliographystyle{acm}
 \bibliography{refs}
