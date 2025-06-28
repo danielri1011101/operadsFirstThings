@@ -12,11 +12,21 @@
 
 \section{}
 
+The free operads of Baez are obtained via $C-$trees, where $C$ is a
+\emph{collection}.
+
+\begin{defn}
+	A \emph{$C-n-$tree} is a planar $n-$tree such that each vertex
+	with $k$ children is labeled by an element of $C_k$.
+\end{defn}
+
+\section{}
+
 The identification of phylogentetic trees with the operations of
 $\mathrm{Com} + \Rsemi$ is thanks to the following theorem in
 \cite{baezOtter}:
 
-\begin{thm}
+\begin{thm}\label{bo40}
 	If $O$ and $O'$ are operads such that $O'$ has only unary
 	operations, then there is a bijection between $(O + O')_n$ and
 	equivalence classes of $(O,O'_1)-n-$trees such that no unary vertex
@@ -24,7 +34,38 @@ $\mathrm{Com} + \Rsemi$ is thanks to the following theorem in
 	$1_{O'}$.
 \end{thm}
 
+\subsection{} The equivalence relation considered in theorem \ref{bo40} is
+the one given by the \emph{natural} way to permute labeled rooted trees,
+namely respecting ``genealogy'' or, more formally, its \emph{partial order
+structure}.
+
+% -							       - %
+% --------------- Closing section of comments ------------------ %
+% -							       - %
+
+\section{Comments}
+
+\subsection{} The definition of \emph{operad} in \cite{baezOtter}
+coincides with that of May in \emph{Geometry of iterated loop spaces}.
+Namely, it is a symmetric operad in the symmetric monoidal category of
+topological spaces. With the exception that more than one 0-ary operations
+are allowed.
+
+\subsection{} The forgetful functor
+
+$$
+U : \mathrm{Op} \to \mathrm{Top}^\NN
+$$
+
+is natural because operad maps are degree-preserving.
+
+\subsection{} Operad maps are defined by preserving the commutative
+diagrams of operads, and being continuous\footnote{Read May in case there
+are topological or otherwise considerations I'm ignoring.}.
+
 \bibliographystyle{acm}
 \bibliography{\refsHomePrefix/refs.bib}
+
+
 
 \end{document}
