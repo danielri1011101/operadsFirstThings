@@ -24,11 +24,17 @@ Given two operads $O$ and $O'$, the $F-U$ adjoint pair gives epimorphisms
 	\epsilon' : FU \ O' \to O'.
 \end{eqnarray}
 
+If the category $\mathrm{Op}$ had coproducts, we would have an operad
+epimorphism\footnote{It being an epimorphism is not immediate, but the
+property is necessary for the validity of the construction.}
+
+\begin{equation}\label{cpd-epis}
+	\epsilon + \epsilon' : (FU \ O) + (FU \ O') \to O + O'.
+\end{equation}
 
 Drawing inspiration\footnote{We haven't established nor cited any relevant
 categorical properties for operads.} from the fact that left adjoints
-preserve colimits \cite{riehl-ctic}, we may define\footnote{See comments
-section.}
+preserve colimits \cite{riehl-ctic}, we may define
 
 
 \begin{equation}\label{fu-coprod}
@@ -36,7 +42,8 @@ section.}
 	\right).
 \end{equation}
 
-
+and therefore compute a quotient of $F \ \left( (U \ O) + (U \ O')
+\right)$ that is a coproduct of $O$ and $O'$.
 
 \section{Comments}
 
@@ -46,10 +53,13 @@ section.}
 \emph{Right adjoints preserve limits and left adjoints preserve colimits.}
 It can be found in \cite{riehl-ctic}.
 
+\subsection{} The definition \eqref{fu-coprod} suggests that
+\emph{``at the $FU-$level coproducts are trivially definied.''}
+
+\subsection{} Justify that $\epsilon + \epsilon'$ in \eqref{cpd-epis} is
+an epimorphism.
+
 \bibliographystyle{acm}
 \bibliography{refs}
 
-
-\subsection{} The definition \eqref{fu-coprod} suggests that
-\emph{``at the $FU-$level coproducts are trivially definied.''}
 \end{document}
