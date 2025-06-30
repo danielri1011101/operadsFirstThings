@@ -14,6 +14,19 @@
 
 \section{Trees}
 
+\begin{defn}\label{def-tree}
+	An $n-$\emph{tree} is the data $(V, E, s, t)$ where
+	\begin{itemize}
+		\item $V$ is a finite set of \emph{vertices}.
+		\item $E$ is a finite set of \emph{edges}.
+		\item $s : E \to V \cup [1..n]$ is the
+			\emph{source map}\footnote{Here we're using the
+			comprehension $[a..b] :=
+			\{t \in \ZZ \ | \ a \leq t \leq b\}$}
+		\item $t : E \to V \cup \{0\}$ is the \emph{target map}
+	\end{itemize}
+\end{defn}
+
 \section{Free operads}
 
 Let $U : \mathrm{Op} \to \mathrm{Top}^{\NN}$ be the forgetful functor and
@@ -71,6 +84,15 @@ It can be found in \cite{riehl-ctic}.
 
 \subsection{} Justify that $\epsilon + \epsilon'$ in \eqref{cpd-epis} is
 an epimorphism.
+
+\subsection{} The number of edges of a tree given by definition
+\ref{def-tree} is probably
+
+$$
+(\# \ V) + n,
+$$
+
+where $n$ is the number of leaves.
 
 \bibliographystyle{acm}
 \bibliography{refs}
