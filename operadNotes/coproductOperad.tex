@@ -14,8 +14,6 @@
 
 \section{Trees}
 
-
-
 \begin{defn}\label{def-tree}
 	An $n-$\emph{tree} is the data $(V, E, s, t)$ where
 	\begin{itemize}
@@ -39,8 +37,16 @@
 	with the authors.} that $e \in E$ has source $u$ and target $v$.
 \end{defn}
 
-
-
+\begin{defn}\label{tree-iso}
+	We say that the trees $(V,E,s,t)$ and $(V',E',s',t)$ are
+	\emph{isomorphic} if there exist bijections $F_0 : V \cup [0..n]
+	\to V' \cup [0..n]$ and $F_1 : E \to E'$ such that
+	\begin{eqnarray}
+		F_0 s &=& s' F_1 \ \ \ \text{and} \\
+		F_0 t &=& t' F_1.
+	\end{eqnarray}
+	In other words, two $n-$trees are isomorphic if they are equal modulo renaming of their vertices and edges.
+\end{defn}
 
 \section{Free operads}
 
@@ -94,7 +100,7 @@ In order for $A$ to be an algebra over $O + O'$, it only requires having
 algebra structrues over both $O$ and $O'$, with no compatibility conditions
 imposed:
 
-\begin{equation}\label{opd-coprod}
+\begin{equation}\label{opd-cpd}
 		\begin{tikzcd}
 			& O + O' \arrow[dd, dashed, "u + v" description] &
 					\\
