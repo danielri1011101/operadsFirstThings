@@ -14,39 +14,7 @@
 
 \section{Trees}
 
-\begin{defn}\label{def-tree}
-	An $n-$\emph{tree} is the data $(V, E, s, t)$ where
-	\begin{itemize}
-		\item $V$ is a finite set of \emph{vertices},
-		\item $E$ is a finite set of \emph{edges},
-		\item $s : E \to V \cup [1..n]$ is the
-			\emph{source map}\footnote{Here we're using the
-			comprehension $[a..b] :=
-			\{t \in \ZZ \ | \ a \leq t \leq b\}$}, and
-		\item $t : E \to V \cup \{0\}$ is the \emph{target map}.
-	\end{itemize}
-	This data is restricted to satisfy the following conditions:
-	\begin{enumerate}
-		\item It defines a graph-theoretic tree with vertices
-			$V \cup [0..n]$ and edges $E$.
-		\item There is exactly one $e \in E$ such that $t(e) = 0$.
-	\end{enumerate}
-	We use $u \to^{e} v$ to denote\footnote{Since the vertices and
-	edges form a tree,  specifying the edge is redundant. We will keep
-	this definition for the time being in order to fluidly converse
-	with the authors.} that $e \in E$ has source $u$ and target $v$.
-\end{defn}
-
-\begin{defn}\label{tree-iso}
-	We say that the trees $(V,E,s,t)$ and $(V',E',s',t)$ are
-	\emph{isomorphic} if there exist bijections $F_0 : V \cup [0..n]
-	\to V' \cup [0..n]$ and $F_1 : E \to E'$ such that
-	\begin{eqnarray}
-		F_0 s &=& s' F_1 \ \ \ \text{and} \\
-		F_0 t &=& t' F_1.
-	\end{eqnarray}
-	In other words, two $n-$trees are isomorphic if they are equal modulo renaming of their vertices and edges.
-\end{defn}
+\input{trees}
 
 \section{Free operads}
 
