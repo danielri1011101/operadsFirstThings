@@ -44,6 +44,10 @@
 			of this set is the \emph{arity} of $v$.
 		\item A 0-ary vertex is called a \emph{terminus}.
 		\item A tree with one vertex is called a \emph{corolla}.
+		\item The edge whose target is the root, and the edges
+			whose sources are the leaves, are called
+			\emph{external edges}, and the remaining edges are
+			the \emph{internal edges}.
 	\end{itemize}
 \end{defn}
 
@@ -59,3 +63,12 @@ We now define trees with lengths.
 	An $n-$tree \emph{with lengths} is the data $(T,l)$ where $T$ is an $n-$tree and $l : E \to [0, \infty[$. The \emph{length function} $l$ clearly makes $T$ into a planar tree.
 \end{defn}
 
+\begin{defn}[Phylogenetic trees]\label{phts}
+	A \emph{phylogenetic $n-$tree} is an isomorphism class of $n-$trees with lengths satisfying the following conditions:
+	\begin{enumerate}
+		\item \emph{There are no unary vertices nor termini}, and
+		\item \emph{There are no internal edges of length 0}.
+	\end{enumerate}
+\end{defn}
+
+% % - Definitions are maybe too conversational.
