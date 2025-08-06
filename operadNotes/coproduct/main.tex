@@ -1,0 +1,148 @@
+\documentclass{amsart}
+
+\input{preambleGen}
+
+\title{Coproduct of Operads}
+\author{Daniel R. Barrero R.}
+\date{\today}
+
+\begin{document}
+
+% -	C.f. work log of June 28	- %
+
+\maketitle
+
+\section{Trees}
+
+\input{trees}
+
+\section{Free operads}
+
+Let $U : \mathrm{Op} \to \mathrm{Top}^{\NN}$ be the forgetful functor and
+let $F$ be its left adjoint. Its existence is a result of Boardman and Vogt
+in \cite{bv-hiasots}.
+
+\begin{defn}
+	Let $C$ be a collection. A \emph{$C-$labelled planar $n-$tree} is a
+	planar $n-$tree such that each vertex with $k$ children is labelled
+	by an element of $C_k$.
+\end{defn}
+
+
+	
+
+\section{The construction}
+
+Given two operads $O$ and $O'$, the $F-U$ adjoint pair gives epimorphisms 
+
+\begin{eqnarray}\label{fu-epis}
+	\epsilon : FU \ O \to O \\
+	\epsilon' : FU \ O' \to O'.
+\end{eqnarray}
+
+If the category $\mathrm{Op}$ had coproducts, we would have an operad
+epimorphism\footnote{It being an epimorphism is not immediate, but the
+property is necessary for the validity of the construction.}
+
+\begin{equation}\label{cpd-epis}
+	\epsilon + \epsilon' : (FU \ O) + (FU \ O') \to O + O'.
+\end{equation}
+
+Drawing inspiration\footnote{We haven't established nor cited any relevant
+categorical properties for operads.} from the fact that left adjoints
+preserve colimits \cite{riehl-ctic}, we may define
+
+
+\begin{equation}\label{fu-coprod}
+	(FU \ O) + (FU \ O') \ := \ F \ \left( (U \ O) + (U \ O')
+	\right).
+\end{equation}
+
+and therefore compute a quotient of $F \ \left( (U \ O) + (U \ O')
+\right)$ that is a coproduct of $O$ and $O'$.
+
+\section{Algebras}
+
+
+In order for $A$ to be an algebra over $O + O'$, it only requires having
+algebra structrues over both $O$ and $O'$, with no compatibility conditions
+imposed:
+
+\begin{equation}\label{opd-cpd}
+		\begin{tikzcd}
+			& O + O' \arrow[dd, dashed, "u + v" description] &
+					\\
+			O \arrow[rd, "u"'] \arrow[ru, "i"] & & O'
+				\arrow[ld, "v"] \arrow[lu, "j"'] \\
+			& \mathrm{End}(A) &
+		\end{tikzcd}
+\end{equation}
+
+\section{Comments}
+
+\subsection{} The result by B \& V is that the forgetful functor is
+\emph{monadic.}
+
+\subsection{} The full statement that motivates \eqref{fu-coprod} is that
+\emph{Right adjoints preserve limits and left adjoints preserve colimits.}
+It can be found in \cite{riehl-ctic}.
+
+\subsection{} The definition \eqref{fu-coprod} suggests that
+\emph{``at the $FU-$level coproducts are trivially definied.''}
+
+\subsection{} Justify that $\epsilon + \epsilon'$ in \eqref{cpd-epis} is
+an epimorphism.
+
+\subsection{} The number of edges of a tree given by definition
+\ref{def-tree} is probably
+
+$$
+(\# \ V) + n,
+$$
+
+where $n$ is the number of leaves.
+
+\subsection{Yoneda's lemma} I must write down this simple but important
+fact at some point.
+
+\subsection{General products and coproducts}
+
+\begin{defn}\label{prod-def}
+	Let $X$ and $Y$ be objects of the category $\mathcal{C}$. Their
+	\emph{product}, if it exists, is the data $(X \times Y, p, q)$
+	uniquely determined by the property that for any object $Z$ of
+	$\mathcal{C}$ and maps $f : Z \to X$ and $g : Z \to Y$, the
+	following diagram commutes:
+	\begin{equation}\label{prod-cd}
+		\begin{tikzcd}
+			& X \times Y \arrow[ld, "p"'] \arrow[rd, "q"] & \\
+			  X &            & Y \\
+			  & Z \arrow[lu, "f"] \arrow[ru, "g"']
+			      \arrow[uu, dashed, "f \times g" description] & 
+		\end{tikzcd}
+	\end{equation}
+\end{defn}
+
+We obtain the definition of coproduct by inverting the directions of the
+arrows in definition \ref{prod-def}:
+
+\begin{defn}\label{coprod-def}
+	The \emph{coproduct} of $X$ and $Y$, if it exists, is the data
+	$(X + Y, i, j)$ uniquely determined by the property that for any
+	object $Z$ and maps $u : X \to Z$ and $v : Y \to Z$, the following
+	diagram commutes:
+	\begin{equation}\label{coprod-cd}
+		\begin{tikzcd}
+			& X + Y \arrow[dd, dashed, "u + v" description] &
+					\\
+			X \arrow[rd, "u"'] \arrow[ru, "i"] & & Y
+				\arrow[ld, "v"] \arrow[lu, "j"'] \\
+			& Z &
+		\end{tikzcd}
+	\end{equation}
+\end{defn}
+
+\bibliographystyle{acm}
+\bibliography{refs}
+
+\end{document}
