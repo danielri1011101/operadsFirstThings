@@ -65,18 +65,7 @@
 	\end{tikzpicture}
 \end{exl}
 
-
-
-
-
-
-
-
-
-
-
-
-
+%
 
 \begin{exl}
 	The following trees are not isomorphic
@@ -119,35 +108,6 @@
 		isomorphism-invariant.}
 \end{exl}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \begin{defn}\label{tree-v}
 	This is some vocabulary associated with $n-$trees:
 	\begin{itemize}
@@ -163,16 +123,60 @@
 	\end{itemize}
 \end{defn}
 
-We now define planar trees.
+We now define grafting/partial composition for trees.
+\begin{defn}
+	Let $f= (m, V', E', s', t')$ and $g= (n, V, E, s, t)$ be trees and let 
+	$i \in [1..m]$. The \emph{grafting of $g$ onto $f$ along $i$} is the tree
 
+	\begin{equation*}
+		f \circ_i g= (n+m-1, \tilde{V}, \tilde{E}, \tilde{s}, \tilde{t})
+	\end{equation*} where
+
+	\setcounter{equation}{0}
+	\begin{eqnarray}
+		\tilde{V}= V' \cup V,\\
+		\tilde{E}= (E' \cup E \cup \{x\}) - \{e'_i, e_0\}
+	\end{eqnarray} and
+
+	\begin{displaymath}
+		\tilde{s}(e)=
+		\begin{cases}
+			s'(e)\ \text{if}\ e \in E'\ \text{and}\ s'(e) \in V',\\
+			s'(e)\ \text{if}\ e \in E'\ \text{and}\ s'(e) \in [0..i-1],\\
+			s'(e) + n-1\ \text{if}\ e \in E'\ \text{and}\ s'(e) \in [i+1..m],\\
+			s(e_0)\ \text{if}\ e = x,\\
+			s(e)\ \text{if}\ e \in E\ \text{and}\ s(e) \in V,\\
+			s(e) + i-1\ \text{if}\ e \in E\ \text{and}\ s(e) \in [1..n]
+		\end{cases}
+	\end{displaymath}
+
+	\begin{displaymath}
+		\tilde{t}(e)=
+		\begin{cases}
+			t'(e)\ \text{if}\ e \in E',\\
+			t(e)\ \text{if}\ e \in E,\\
+			t'(e'_i)\ \text{if}\ e = x
+		\end{cases}
+	\end{displaymath} where $e_0$ is the edge of $g$ with target $0$ and $e'_i$ is the
+	edge of $f$ with source $i$.
+\end{defn}
+
+**DRAW GRAFTING EXAMPLES HERE**
+
+\bigskip
+
+We now define planar trees.
 \begin{defn}[Planar trees]\label{plts}
-	A \emph{planar $n-$tree} is an $n-$tree such that each vertex is equipped with a linear ordering on the set of its children. An \emph{isomorphism} of such trees is one that preserves the linear orderings.
+	A \emph{planar $n-$tree} is an $n-$tree such that each vertex is equipped
+	with a linear ordering on the set of its children. An \emph{isomorphism}
+	of such trees is one that preserves the linear orderings.
 \end{defn}
 
 We now define trees with lengths.
-
 \begin{defn}[Trees with lengths]\label{twl}
-	An $n-$tree \emph{with lengths} is the data $(T,l)$ where $T$ is an $n-$tree and $l : E \to [0, \infty[$. The \emph{length function} $l$ clearly makes $T$ into a planar tree.
+	An $n-$tree \emph{with lengths} is the data $(T,l)$ where $T$ is an $n-$tree
+	and $l : E \to [0, \infty[$. The \emph{length function} $l$ clearly makes $T$
+	into a planar tree.
 \end{defn}
 
 \begin{defn}[Phylogenetic trees]\label{phts}
