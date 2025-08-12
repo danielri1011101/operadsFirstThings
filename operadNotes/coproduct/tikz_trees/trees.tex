@@ -1,5 +1,6 @@
-% -	-	-	-	-	-	-	-	-	- %
-%% -	-	-	- Trees for Baez' operads -	-	-      - %%
+%
+% Trees for Baez' operads
+%
 
 \begin{defn}\label{def-tree}
 	An $n-$\emph{tree} is the data $(V, E, s, t)$ where
@@ -29,12 +30,123 @@
 	\emph{isomorphic} if there exist bijections $F_0 : V \cup [0..n]
 	\to V' \cup [0..n]$ and $F_1 : E \to E'$ such that
 	\begin{eqnarray}
-		F_0 s &=& s' F_1 \ \ \ \text{and} \\
-		F_0 t &=& t' F_1.
+		F_0s= s'F_1\\
+		F_0t= t'F_1\\
+		F_0\ \text{restricted to } [0..n]\ \text{is a bijection.}
 	\end{eqnarray}
 	In other words, two $n-$trees are isomorphic if they are equal
 	modulo renaming of their vertices and edges.
 \end{defn}
+
+\begin{exl}
+	The following trees are isomorphic
+
+	\begin{tikzpicture}
+		\node (A) at (1, 0) {};
+		\node[minimum size=0mm, inner sep=0pt] (B) at (1, 1) {};
+		\node[minimum size=0mm, inner sep=0pt] (C) at (0.5, 1.5) {};
+		\node (D) at (0, 2) {1}; \node (E) at (1, 2) {2};
+		\node (F) at (2, 2) {3};
+		%
+		\node (symb) at (2.5, 1) {$\simeq$}; % Equivalence symbol
+		%
+		\node (A') at (4, 0) {};
+		\node[minimum size=0mm, inner sep=0pt] (B') at (4, 1) {};
+		\node[minimum size=0mm, inner sep=0pt] (C') at (4.5, 1.5) {};
+		\node (D') at (3, 2) {3}; \node (E') at (4, 2) {2};
+		\node (F') at (5, 2) {1};
+		% Drawing the edges
+		%% Left tree
+		\draw (A) to (B); \draw (B) to (C); \draw (B) to (F);
+		\draw (C) to (D); \draw (C) to (E);
+		%% Right tree
+		\draw (A') to (B'); \draw (B') to (C'); \draw (B') to (D');
+		\draw (C') to (E'); \draw (C') to (F');
+	\end{tikzpicture}
+\end{exl}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{exl}
+	The following trees are not isomorphic
+
+	\begin{tikzpicture}
+		% Picture nodes
+		%% Left tree
+		\node (N) at (1, 0) {};
+		\node[minimum size=0mm, inner sep=0pt] (Ni) at (1, 1) {};
+		\node[minimum size=0mm, inner sep=0pt] (Nii) at (0.5, 1.5) {};
+		\node (1) at (0, 2) {1};
+		\node (2) at (1, 2) {2};
+		\node (3) at (2, 2) {3};
+		%% Symbol
+		\node (symb) at (2.5, 1) {$\not\simeq$};
+		%% Right tree
+		\node (N') at (4, 0) {};
+		\node[minimum size=0mm, inner sep=0pt] (N'i) at (4, 1) {};
+		\node[minimum size=0mm, inner sep=0pt] (N'ii) at (3.5, 1.5) {};
+		\node (1') at (3, 2) {1};
+		\node (2') at (5, 2) {2};
+		\node (3') at (4, 2) {3};
+		% Picture arcs
+		%% Left tree edges
+		\draw (N) to (Ni);
+		\draw (Ni) to (Nii);
+		\draw (Ni) to (3);
+		\draw (Nii) to (1);
+		\draw (Nii) to (2);
+		%% Right tree edges
+		\draw (N') to (N'i);
+		\draw (N'i) to (N'ii);
+		\draw (N'i) to (2');
+		\draw (N'ii) to (1');
+		\draw (N'ii) to (3');
+	\end{tikzpicture}
+
+	For instance because the lengths of the paths from the root to node 3 are
+	different.\footnote{The reader can check that path length is
+		isomorphism-invariant.}
+\end{exl}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \begin{defn}\label{tree-v}
 	This is some vocabulary associated with $n-$trees:
@@ -71,8 +183,6 @@ We now define trees with lengths.
 	\end{enumerate}
 \end{defn}
 
-%\input{textSizes}
-
 A drawing:
 
 \begin{center}
@@ -83,6 +193,7 @@ A drawing:
 		\draw (1) to node {0.5} (2);
 	\end{tikzpicture}
 \end{center}
+
 
 % green!50!black produces a dark green.
 
