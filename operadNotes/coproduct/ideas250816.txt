@@ -1,0 +1,5 @@
+- O is a quotient of FU(O). In FU(O), there are no relations among the operations
+of O /*I guess*/, but they define the quotient map FU(O) -> O.
+- In FU(O), elements of O_n are nothing but vertex tags of n-corollas.
+- Defining O, O' -> F(U(O) + U(O')) as corolla inclusions is easy, also in Haskell.
+- There's no reason to expect F(U(O)+U(O')) -> O+O' to be mm. of FU(O) -> O.
