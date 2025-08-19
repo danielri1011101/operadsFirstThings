@@ -34,6 +34,8 @@ data RTree a = Node a [RTree a]
 
 --
 -- 25.08.19 White operads.
+-- Everyting is "dirty" because Int should be Nat, and
+-- Int -> Int should be permutations of [1..n]
 --
 
 -- Pre-operad: a collection of "sets"; s a :: set of a's
