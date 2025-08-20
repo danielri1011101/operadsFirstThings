@@ -1,0 +1,2 @@
+cabal run . -- dario.txt
+nieves: dario.txt: withFile: resource busy (file is locked)

@@ -3,3 +3,10 @@ of O /*I guess*/, but they define the quotient map FU(O) -> O.
 - In FU(O), elements of O_n are nothing but vertex tags of n-corollas.
 - Defining O, O' -> F(U(O) + U(O')) as corolla inclusions is easy, also in Haskell.
 - There's no reason to expect F(U(O)+U(O')) -> O+O' to be mm. of FU(O) -> O.
+
+25.08.20
+
+- Hw6 of fp does require generating permutations, a process which can be viewed as
+* -> Perm, but it does not define the desired type Perm.
+- Look for sections in HID, WolfH, and LYAHFGG where I could find hints for defining
+Perm.

@@ -1,0 +1,3 @@
+0.7/2
+1) 10.05 Permute file (0.7/1) Importación incorrecta de dependencias de System.Random. El tipo StdGen no se reconoce. No sigue la especificación del enunciado pues no recibe el nombre del archivo como argumento. ^
+2) 10.06 Interleave files (0/1) No está ^

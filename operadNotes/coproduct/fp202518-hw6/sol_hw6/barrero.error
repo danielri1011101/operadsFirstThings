@@ -1,0 +1,36 @@
+Build profile: -w ghc-9.8.4 -O1
+In order, the following will be built (use -v for more details):
+ - sol-hw6-0.1.0.0 (exe:sol-hw6) (file app/Main.hs changed)
+Preprocessing executable 'sol-hw6' for sol-hw6-0.1.0.0...
+Building executable 'sol-hw6' for sol-hw6-0.1.0.0...
+
+<no location info>: warning: [GHC-32850] [-Wmissing-home-modules]
+    These modules are needed for compilation but not listed in your .cabal file's other-modules for ‘sol-hw6-0.1.0.0-inplace-sol-hw6’ :
+        PermFile
+[1 of 2] Compiling PermFile         ( app/PermFile.hs, dist-newstyle/build/x86_64-linux/ghc-9.8.4/sol-hw6-0.1.0.0/x/sol-hw6/build/sol-hw6/sol-hw6-tmp/PermFile.o ) [Source file changed]
+
+app/PermFile.hs:15:25: error: [GHC-83865]
+    • Couldn't match expected type: [Int]
+                  with actual type: Int -> [Int]
+    • Probable cause: ‘pmt’ is applied to too few arguments
+      In the first argument of ‘p_map’, namely ‘(pmt n)’
+      In the expression: p_map (pmt n) xs
+      In an equation for ‘permuteList’:
+          permuteList xs
+            = p_map (pmt n) xs
+            where
+                p_map :: [Int] -> [a] -> [a]
+                p_map ns xs = foldr ((:) . (xs !!)) [] ns
+                (pmt, n) = (permuteNrs, length xs)
+   |
+15 | permuteList xs = p_map (pmt n) xs
+   |                         ^^^^^
+
+app/PermFile.hs:37:43: error: [GHC-88464]
+    Variable not in scope: q :: t0 a
+   |
+37 |     cond y = y `elem` xs && not (y `elem` q)
+   |                                           ^
+Error: [Cabal-7125]
+Failed to build exe:sol-hw6 from sol-hw6-0.1.0.0.
+
