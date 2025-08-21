@@ -10,3 +10,8 @@ of O /*I guess*/, but they define the quotient map FU(O) -> O.
 * -> Perm, but it does not define the desired type Perm.
 - Look for sections in HID, WolfH, and LYAHFGG where I could find hints for defining
 Perm.
+
+25.08.21
+
+- Rosen, 7th ed ss 6.6 Exercises 14-17: Cantor digit representation of a [1..n]-
+permutation.
