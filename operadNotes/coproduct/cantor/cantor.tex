@@ -1,0 +1,81 @@
+The main reference is the exercises segment from \S 6.6 of the book \cite{rosen7thEd}.
+
+The idea of Cantor digits consists of representing a permutation of $[1..n]$ with
+a list of non-negative integers of length $n-1$, with repetitions allowed.
+
+\bigskip
+**\emph{Display explicit examples for small values of $n$, that suggest the
+computational efficiency}**
+
+\bigskip
+Specifically, we have
+
+\begin{defn}
+	Let $n > 1$ and let $k \in [0..n!-1]$. The \emph{Cantor expansion} of
+	$k$ is the list $[a_1, \cdots, a_n]$ where the numbers $a_i$ are the unique
+	integers such that $0 \leq a_i \leq i$ and
+	\[
+		k = \sum_{i= 1}^{n-1} a_ii!
+	\]
+	The integers $a_1,\cdots,a_{n-1}$ are called the \emph{Cantor digits} of
+	$k$.
+\end{defn}
+
+Clearly, this definition is preceded by the following theorem.
+
+\begin{thm}\label{ce} % Cantor expansion
+	Let $n > 1$ and let $k \in [0..n!-1]$. Then there exist unique integers
+	$a_1,\cdots,a_{n-1}$ such that $0 \leq a_i \leq i$ and
+	\[
+		k = \sum_{i= 1}^{n-1} a_ii!
+	\]
+\end{thm}
+%
+\begin{proof}
+	Let $n= 2$. Then the expressions $0 = 0\cdot1!$ and $1 = 1\cdot1!$ are
+	clearly true and unique.
+	Now let $n > 2$ and suppose that for all $k \in [0..(n-1)!-1]$ there exist
+	unique integers $a_1,\cdots,a_{n-2}$ such that
+	\[
+		\begin{cases}
+			0 \leq a_i \leq i\\
+			k = \sum_{i= 1}^{n-2} a_ii! 
+		\end{cases}
+	\]
+	Let $K \in [(n-1)!..n!-1]$. Then, there exist unique non-negative integers
+	$k$ and $Q$ such that
+	\[
+		\begin{cases}
+			K = k + Q\\
+			k \in [0..(n-1)!-1]\\
+			Q \in [(n-1)!..(n-1)!(n-1)!]
+		\end{cases}
+	\]
+	Explicitly, $Q = q(n-1)!$ given by the division algorithm. Also notice
+	that $q < n$ because $K < n!$.
+	Therefore
+	\[
+		K = \sum_{i= 1}^{n-1}b_ii!,
+	\]
+	where for $i < n-1$ we let $b_i= a_i$ given by the induction hypothesis
+	applied to $k$ and we let $b_{n-1}= q$.
+
+	To see the uniqueness of these Cantor digits, suppose
+	\[
+		K = \sum_{i= 1}^{n-1} c_ii!
+	\]
+	for coefficients $c_i$ satisfying the appropriate restrictions. Then
+	\[
+		K = c_{n-1}(n-1)! + \sum_{i=1}^{n-2} c_ii!
+	\]
+	Thanks to lemma \ref{mcs}, $\sum_{i= 1}^{n-2} c_ii! < (n-1)!$, and therefore
+	$c_i = b_i$ for all $i$.
+\end{proof}
+
+This lemma is relevant to the proof of theorem \ref{ce}.
+\begin{lma}\label{mcs} % Max Cantor sum
+	Let $n > 1$. Then
+	\[
+		\sum_{i= 1}^{n-1} i\cdot i! = n!-1.
+	\]
+\end{lma}

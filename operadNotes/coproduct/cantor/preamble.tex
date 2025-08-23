@@ -1,0 +1,40 @@
+% Packages
+\usepackage{wasysym}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+% Notation
+%% Number sets
+\newcommand{\NN}{\mathbf{N}} % Natural numbers
+\newcommand{\ZZ}{\mathbf{Z}} % Integers
+\newcommand{\Zpos}{\ZZ^+} % Positive integers
+\newcommand{\RR}{\mathbf{R}} % Real numbers
+\newcommand{\Rpos}{\RR^+} % Positive reals
+
+% Formal statements
+%% Theorem format
+\newtheorem{thm}{Theorem} % Theorems
+\newtheorem{lma}{Lemma} % Lemmas
+\newtheorem{qtn}{Question} % Questions
+%% Definition format
+\theoremstyle{definition}
+\newtheorem{defn}{Definition} % Definitions
+\newtheorem{quiz}{Quiz} % Quizzes
+
+% Display of code
+%% Color definitions
+\definecolor{egreen}{RGB}{63,127,95} % eclipse comments green
+%% Code style
+\lstdefinestyle{hwstyle}{
+	basicstyle=\scriptsize\ttfamily,
+	keywordstyle=\color{purple}\bfseries,
+	stringstyle=\color{blue},
+	commentstyle=\color{egreen},
+	showstringspaces=false,
+%	numbers=left,
+	numberstyle=\tiny,
+	breaklines=true,
+}
+\lstset{style=hwstyle}
